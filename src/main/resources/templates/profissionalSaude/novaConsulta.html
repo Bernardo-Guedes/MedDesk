@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedDesk - Nova Consulta</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+    <link rel="stylesheet" href="../../static/css/novaConsulta.css" th:href="@{/css/novaConsulta.css}">
+</head>
+<body>
+    <div class="estrutura-aplicativo">
+
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="inicio.html" class="item-navegacao">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="consultasAgendadas.html" class="item-navegacao">
+                    <img src="../../static/images/agendaIcon.svg" th:src="@{/images/agendaIcon.svg}" alt="Agenda" class="icone-navegacao">
+                    <span>Agenda</span>
+                </a>
+                <a href="historico.html" class="item-navegacao">
+                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Histórico" class="icone-navegacao">
+                    <span>Histórico</span>
+                </a>
+                <!-- Item Nova Consulta ativo -->
+                <a href="novaConsulta.html" class="item-navegacao ativo">
+                    <img src="../../static/images/novaConsultaIconAzul.svg" th:src="@{/images/novaConsultaIconAzul.svg}" alt="Nova Consulta" class="icone-navegacao">
+                    <span>Nova Consulta</span>
+                </a>
+                <a href="perfil.html" class="item-navegacao">
+                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Perfil" class="icone-navegacao">
+                    <span>Perfil</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <main class="conteudo-principal">
+
+            <!-- CABEÇALHO SUPERIOR ESCURO -->
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Dr. Carlos Sales</span>
+                        <span class="funcao-usuario">Pediatra</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <!-- BARRA DE TÍTULO -->
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/novaConsultaIconAzul.svg" th:src="@{/images/novaConsultaIconAzul.svg}" alt="Ícone Nova Consulta" class="icone-titulo">
+                <h1 class="titulo-pagina">Agendar Nova Consulta</h1>
+            </div>
+
+            <!-- ÁREA DE CONTEÚDO ROLÁVEL -->
+            <div class="area-conteudo">
+
+                <!-- Formulário de Nova Consulta -->
+                <div class="cartao-perfil cartao-nova-consulta">
+                    <h3 class="titulo-secao-formulario">Detalhes do Agendamento</h3>
+                    
+                    <form class="formulario-perfil">
+                        
+                        <!-- PACIENTE -->
+                        <div class="grupo-formulario">
+                            <label class="rotulo-formulario">Paciente</label>
+                            <input type="text" class="campo-formulario" list="lista-pacientes" placeholder="Pesquise pelo nome ou selecione na lista...">
+                            <datalist id="lista-pacientes">
+                                <option value="Alice Martins"></option>
+                                <option value="Luiza Gomes"></option>
+                                <option value="Monark Igor Power Da Silva"></option>
+                                <option value="Pedro Alves"></option>
+                            </datalist>
+                        </div>
+
+                        <!-- DATA e HORÁRIO -->
+                        <div class="linha-formulario">
+                            <div class="grupo-formulario">
+                                <label class="rotulo-formulario">Data da Consulta</label>
+                                <select class="campo-formulario">
+                                    <option value="" disabled selected>Selecione uma data</option>
+                                    <option value="2026-10-05">Dia 25 (Segunda-feira)</option>
+                                    <option value="2026-10-06">Dia 26 (Terça-feira)</option>
+                                    <option value="2026-10-07">Dia 27 (Quarta-feira)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="grupo-formulario">
+                                <label class="rotulo-formulario">Horário</label>
+                                <select class="campo-formulario">
+                                    <option value="" disabled selected>Selecione um horário</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:45">10:45</option>
+                                    <option value="19:00">19:00</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- MOTIVO DA CONSULTA -->
+                        <div class="grupo-formulario">
+                            <label class="rotulo-formulario">Motivo da Consulta</label>
+                            <input type="text" class="campo-formulario" placeholder="Ex: Avaliação de rotina, Retorno de exames, Febre contínua...">
+                        </div>
+
+                        <!-- OBSERVAÇÕES MÉDICAS -->
+                        <div class="grupo-formulario grupo-observacoes-consulta">
+                            <label class="rotulo-formulario">Observações Médicas</label>
+                            <textarea class="campo-formulario" rows="4" placeholder="Adicione notas de pré-consulta, preparações ou lembretes..."></textarea>
+                        </div>
+
+                        <hr class="divisor-formulario">
+
+                        <!-- BOTÕES DE AÇÃO -->
+                        <div class="acoes-formulario">
+                            <button type="button" class="botao-contorno">Cancelar</button>
+                            <button type="button" class="botao-principal">Confirmar Agendamento</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>
