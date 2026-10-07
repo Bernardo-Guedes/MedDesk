@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedDesk - Detalhes do Quarto</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+    <link rel="stylesheet" href="../../static/css/detalhesQuarto.css" th:href="@{/css/detalhesQuarto.css}">
+</head>
+<body>
+    <div class="estrutura-aplicativo">
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="inicio.html" class="item-navegacao">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="#" class="item-navegacao">
+                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Pacientes" class="icone-navegacao">
+                    <span>Pacientes</span>
+                </a>
+                <a href="#" class="item-navegacao">
+                    <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIcon.svg}" alt="Profissionais" class="icone-navegacao">
+                    <span>Profissionais</span>
+                </a>
+                <a href="internacoes.html" class="item-navegacao ativo" aria-current="page">
+                    <img src="../../static/images/historicoIconAzul.svg" th:src="@{/images/historicoIconAzul.svg}" alt="Internações" class="icone-navegacao">
+                    <span>Internações</span>
+                </a>
+                <a href="criarAtendimento.html" class="item-navegacao">
+                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Criar Atendimento" class="icone-navegacao">
+                    <span>Criar Atendimento</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="conteudo-principal">
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Ana Souza</span>
+                        <span class="funcao-usuario">Secretária / Recepção</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/quartoIcon.svg" th:src="@{/images/quartoIcon.svg}" alt="" class="icone-titulo">
+                <h1 class="titulo-pagina" id="titulo-quarto">Detalhes do Quarto</h1>
+            </div>
+
+            <div class="area-conteudo">
+                <section class="painel-internacao painel-detalhes-quarto">
+                    <div class="resumo-quarto">
+                        <div>
+                            <h2 id="nome-quarto">Carregando quarto...</h2>
+                            <p id="status-quarto" class="status-detalhe-quarto"></p>
+                        </div>
+                        <p id="ocupacao-quarto" class="ocupacao-detalhe-quarto"></p>
+                    </div>
+                    <h3 class="titulo-pacientes-quarto">Pacientes neste quarto</h3>
+                    <div id="lista-pacientes-quarto" class="lista-pacientes-quarto"></div>
+                    <p id="mensagem-pacientes-vazios" class="mensagem-pacientes-vazios" hidden>
+                        Este quarto está disponível e não possui pacientes internados.
+                    </p>
+                    <p id="mensagem-quarto-invalido" class="mensagem-quarto-invalido" role="alert" hidden>
+                        Não foi possível encontrar esse quarto. Volte para Internações e selecione um quarto da lista.
+                    </p>
+                    <a href="internacoes.html" class="link-voltar-quartos botao-principal">Voltar para Internações</a>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const quartos = {
+            '101': {
+                status: 'Ocupado',
+                leitos: 2,
+                pacientes: [
+                    { nome: 'Alice Martins', leito: 'Leito 1', entrada: '05/10/2026', profissional: 'Dr. Carlos Sales' },
+                    { nome: 'Pedro Alves', leito: 'Leito 2', entrada: '06/10/2026', profissional: 'Dra. Juliana Mendes' }
+                ]
+            },
+            '102': { status: 'Disponível', leitos: 2, pacientes: [] },
+            '201': {
+                status: 'Ocupado',
+                leitos: 1,
+                pacientes: [
+                    { nome: 'Luiza Gomes', leito: 'Leito 1', entrada: '06/10/2026', profissional: 'Dr. Roberto Almeida' }
+                ]
+            },
+            '202': { status: 'Disponível', leitos: 1, pacientes: [] },
+            '301': {
+                status: 'Ocupado',
+                leitos: 1,
+                pacientes: [
+                    { nome: 'Mariana Costa', leito: 'Leito 1', entrada: '07/10/2026', profissional: 'Dr. Carlos Sales' }
+                ]
+            },
+            '302': { status: 'Disponível', leitos: 1, pacientes: [] }
+        };
+
+        const numeroQuarto = new URLSearchParams(window.location.search).get('quarto');
+        const quarto = quartos[numeroQuarto];
+        const listaPacientes = document.getElementById('lista-pacientes-quarto');
+        const tituloPacientes = document.querySelector('.titulo-pacientes-quarto');
+        const statusQuarto = document.getElementById('status-quarto');
+        const ocupacaoQuarto = document.getElementById('ocupacao-quarto');
+        const mensagemPacientesVazios = document.getElementById('mensagem-pacientes-vazios');
+
+        function atualizarPacientesDoQuarto() {
+            listaPacientes.replaceChildren();
+            quarto.status = quarto.pacientes.length ? 'Ocupado' : 'Disponível';
+            statusQuarto.textContent = quarto.status;
+            statusQuarto.classList.toggle('status-ocupado', quarto.pacientes.length > 0);
+            statusQuarto.classList.toggle('status-disponivel', quarto.pacientes.length === 0);
+            ocupacaoQuarto.textContent =
+                `${quarto.pacientes.length} de ${quarto.leitos} ${quarto.leitos === 1 ? 'leito ocupado' : 'leitos ocupados'}`;
+            tituloPacientes.hidden = quarto.pacientes.length === 0;
+            mensagemPacientesVazios.hidden = quarto.pacientes.length > 0;
+
+            quarto.pacientes.forEach((paciente, indice) => {
+                const cartao = document.createElement('article');
+                cartao.className = 'cartao-consulta cartao-paciente-quarto';
+
+                const informacoes = document.createElement('div');
+                informacoes.className = 'informacoes-paciente-quarto';
+
+                const nome = document.createElement('span');
+                nome.className = 'nome-paciente';
+                nome.textContent = paciente.nome;
+
+                const detalhes = document.createElement('div');
+                detalhes.className = 'etiquetas-consulta';
+                [`Entrada: ${paciente.entrada}`, paciente.profissional].forEach(texto => {
+                    const etiqueta = document.createElement('span');
+                    etiqueta.className = 'etiqueta';
+                    etiqueta.textContent = texto;
+                    detalhes.append(etiqueta);
+                });
+
+                const botaoRemover = document.createElement('button');
+                botaoRemover.className = 'botao-remover-paciente';
+                botaoRemover.type = 'button';
+                botaoRemover.textContent = 'Remover';
+                botaoRemover.setAttribute('aria-label', `Remover ${paciente.nome} do quarto`);
+                botaoRemover.addEventListener('click', () => {
+                    quarto.pacientes.splice(indice, 1);
+                    atualizarPacientesDoQuarto();
+                });
+
+                informacoes.append(nome, detalhes);
+                cartao.append(informacoes, botaoRemover);
+                listaPacientes.append(cartao);
+            });
+        }
+
+        if (!quarto) {
+            document.getElementById('nome-quarto').textContent = 'Quarto não encontrado';
+            document.getElementById('mensagem-quarto-invalido').hidden = false;
+            tituloPacientes.hidden = true;
+        } else {
+            document.getElementById('titulo-quarto').textContent = `Quarto ${numeroQuarto}`;
+            document.getElementById('nome-quarto').textContent = `Quarto ${numeroQuarto}`;
+            atualizarPacientesDoQuarto();
+        }
+    </script>
+</body>
+</html>
