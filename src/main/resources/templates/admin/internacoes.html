@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedDesk - Internações</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+    <link rel="stylesheet" href="../../static/css/internacoes.css" th:href="@{/css/internacoes.css}">
+</head>
+<body>
+    <div class="estrutura-aplicativo">
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="inicio.html" class="item-navegacao">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="#" class="item-navegacao">
+                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Pacientes" class="icone-navegacao">
+                    <span>Pacientes</span>
+                </a>
+                <a href="#" class="item-navegacao">
+                    <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIcon.svg}" alt="Profissionais" class="icone-navegacao">
+                    <span>Profissionais</span>
+                </a>
+                <a href="internacoes.html" class="item-navegacao ativo" aria-current="page">
+                    <img src="../../static/images/historicoIconAzul.svg" th:src="@{/images/historicoIconAzul.svg}" alt="Internações" class="icone-navegacao">
+                    <span>Internações</span>
+                </a>
+                <a href="criarAtendimento.html" class="item-navegacao">
+                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Criar Atendimento" class="icone-navegacao">
+                    <span>Criar Atendimento</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="conteudo-principal">
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Ana Souza</span>
+                        <span class="funcao-usuario">Secretária / Recepção</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/historicoIconAzul.svg" th:src="@{/images/historicoIconAzul.svg}" alt="" class="icone-titulo">
+                <h1 class="titulo-pagina">Internações</h1>
+            </div>
+
+            <div class="area-conteudo">
+                <section class="grade-indicadores-internacao" aria-label="Resumo das internações">
+                    <article class="cartao-indicador-internacao">
+                        <h2>Número de Quartos</h2>
+                        <p class="valor-indicador-internacao">24</p>
+                    </article>
+                    <article class="cartao-indicador-internacao cartao-disponivel">
+                        <h2>Quartos disponíveis</h2>
+                        <p class="valor-indicador-internacao">6</p>
+                    </article>
+                    <article class="cartao-indicador-internacao cartao-ocupado">
+                        <h2>Pacientes internados</h2>
+                        <p class="valor-indicador-internacao">18</p>
+                    </article>
+                </section>
+
+                <section class="painel-internacao">
+                    <div class="cabecalho-painel-internacao">
+                        <div>
+                            <h2>Ocupação dos Quartos</h2>
+                        </div>
+                        <span class="legenda-disponibilidade"><span></span> Disponível</span>
+                    </div>
+                    <div class="grade-quartos">
+                        <a class="cartao-quarto ocupado" href="detalhesQuarto.html?quarto=101">
+                            <div><h3>Quarto 101</h3></div>
+                            <span class="estado-quarto">Ocupado</span>
+                            <p>2 de 2 leitos ocupados</p>
+                        </a>
+                        <a class="cartao-quarto disponivel" href="detalhesQuarto.html?quarto=102">
+                            <div><h3>Quarto 102</h3></div>
+                            <span class="estado-quarto">Disponível</span>
+                            <p>2 leitos disponíveis</p>
+                        </a>
+                        <a class="cartao-quarto ocupado" href="detalhesQuarto.html?quarto=201">
+                            <div><h3>Quarto 201</h3></div>
+                            <span class="estado-quarto">Ocupado</span>
+                            <p>1 de 1 leito ocupado</p>
+                        </a>
+                        <a class="cartao-quarto disponivel" href="detalhesQuarto.html?quarto=202">
+                            <div><h3>Quarto 202</h3></div>
+                            <span class="estado-quarto">Disponível</span>
+                            <p>1 leito disponível</p>
+                        </a>
+                        <a class="cartao-quarto ocupado" href="detalhesQuarto.html?quarto=301">
+                            <div><h3>Quarto 301</h3></div>
+                            <span class="estado-quarto">Ocupado</span>
+                            <p>1 de 1 leito ocupado</p>
+                        </a>
+                        <a class="cartao-quarto disponivel" href="detalhesQuarto.html?quarto=302">
+                            <div><h3>Quarto 302</h3></div>
+                            <span class="estado-quarto">Disponível</span>
+                            <p>1 leito disponível</p>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
