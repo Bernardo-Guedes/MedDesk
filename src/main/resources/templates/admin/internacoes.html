@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
-    <link rel="stylesheet" href="../../static/css/internacoes.css" th:href="@{/css/internacoes.css}">
+    <link rel="stylesheet" href="../../static/css/admin/internacoes.css" th:href="@{/css/admin/internacoes.css}">
 </head>
 <body>
     <div class="estrutura-aplicativo">
@@ -21,7 +21,7 @@
             </div>
 
             <nav class="navegacao-lateral">
-                <a href="inicio.html" class="item-navegacao">
+                <a href="home.html" th:href="@{home.html}" class="item-navegacao">
                     <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
                     <span>Início</span>
                 </a>
