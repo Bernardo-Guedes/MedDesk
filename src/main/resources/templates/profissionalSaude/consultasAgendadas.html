@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultas Agendadas</title>
+  
+  <!-- Ícone da aba do navegador (Favicon) -->
+  <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+  
+  <!-- Fonte Inclusive Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+</head>
+<body>
+  <div class="estrutura-aplicativo">
+    
+    <!-- BARRA LATERAL (SIDEBAR) -->
+    <aside class="barra-lateral">
+      <div class="cabecalho-barra-lateral">
+        <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+      </div>
+      
+      <nav class="navegacao-lateral">
+        <a href="inicio.html" th:href="@{/inicio.html}" class="item-navegacao">
+          <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+          <span>Início</span>
+        </a>
+        <a href="#" class="item-navegacao ativo">
+          <img src="../../static/images/agendaIconAzul.svg" th:src="@{/images/agendaIconAzul.svg}" alt="Agenda" class="icone-navegacao">
+          <span>Agenda</span>
+        </a>
+        <a href="historico.html" class="item-navegacao">
+          <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Histórico" class="icone-navegacao">
+          <span>Histórico</span>
+        </a>
+        <a href="novaConsulta.html" class="item-navegacao">
+          <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Nova Consulta" class="icone-navegacao">
+          <span>Nova Consulta</span>
+        </a>
+        <a href="perfil.html" class="item-navegacao">
+          <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Perfil" class="icone-navegacao">
+          <span>Perfil</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="conteudo-principal">
+      
+      <!-- CABEÇALHO SUPERIOR ESCURO -->
+      <header class="cabecalho-superior">
+        <div class="perfil-usuario">
+          <div class="informacoes-usuario">
+            <span class="nome-usuario">Dr. Carlos Sales</span>
+            <span class="funcao-usuario">Pediatra</span>
+          </div>
+          <div class="avatar-usuario"></div>
+        </div>
+      </header>
+
+      <!-- BARRA DE TÍTULO -->
+      <div class="barra-titulo-pagina">
+        <img src="../../static/images/doctorIconTitulo.svg" th:src="@{/images/doctorIconTitulo.svg}" alt="Ícone Consultas" class="icone-titulo">
+        <h1 class="titulo-pagina">Consultas Agendadas</h1>
+      </div>
+
+      <!-- ÁREA DE CONTEÚDO -->
+      <div class="area-conteudo">
+        
+        <!-- FILTRO -->
+        <div class="secao-filtros">
+          <span class="rotulo-filtro">Filtro:</span>
+          <button class="botao-filtro">
+            Dezembro/26 
+            <svg width="12" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L7 7L13 1" stroke="#1f2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- LISTA DE CONSULTAS -->
+        <div class="lista-consultas">
+          
+          <div class="cartao-consulta">
+            <span class="nome-paciente">Monark Igor Power Da Silva</span>
+            <div class="etiquetas-consulta">
+              <span class="etiqueta">19:00</span>
+              <span class="etiqueta">Dia 25</span>
+            </div>
+          </div>
+          
+          <div class="cartao-consulta">
+            <span class="nome-paciente">Monark Igor Power Da Silva</span>
+            <div class="etiquetas-consulta">
+              <span class="etiqueta">19:00</span>
+              <span class="etiqueta">Dia 25</span>
+            </div>
+          </div>
+          
+          <div class="cartao-consulta">
+            <span class="nome-paciente">Monark Igor Power Da Silva</span>
+            <div class="etiquetas-consulta">
+              <span class="etiqueta">19:00</span>
+              <span class="etiqueta">Dia 25</span>
+            </div>
+          </div>
+          
+          <div class="cartao-consulta">
+            <span class="nome-paciente">Monark Igor Power Da Silva</span>
+            <div class="etiquetas-consulta">
+              <span class="etiqueta">19:00</span>
+              <span class="etiqueta">Dia 25</span>
+            </div>
+          </div>
+          
+          <div class="cartao-consulta">
+            <span class="nome-paciente">Monark Igor Power Da Silva</span>
+            <div class="etiquetas-consulta">
+              <span class="etiqueta">19:00</span>
+              <span class="etiqueta">Dia 25</span>
+            </div>
+          </div>
+
+          <div class="cartao-consulta">
+            <span class="nome-paciente">Monark Igor Power Da Silva</span>
+            <div class="etiquetas-consulta">
+              <span class="etiqueta">19:00</span>
+              <span class="etiqueta">Dia 25</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
