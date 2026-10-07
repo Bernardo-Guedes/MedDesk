@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedDesk - Novo Atendimento</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+    <link rel="stylesheet" href="../../static/css/criarAtendimento.css" th:href="@{/css/criarAtendimento.css}">
+</head>
+<body>
+    <div class="estrutura-aplicativo">
+
+        <!-- BARRA LATERAL DA SECRETÁRIA -->
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="inicio.html" class="item-navegacao">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="#" class="item-navegacao">
+                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Pacientes" class="icone-navegacao">
+                    <span>Pacientes</span>
+                </a>
+                <a href="#" class="item-navegacao">
+                    <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIcon.svg}" alt="Profissionais" class="icone-navegacao">
+                    <span>Profissionais</span>
+                </a>
+                <a href="internacoes.html" class="item-navegacao">
+                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Internações" class="icone-navegacao">
+                    <span>Internações</span>
+                </a>
+                <!-- Item Criar Atendimento ativo -->
+                <a href="criarAtendimento.html" class="item-navegacao ativo" aria-current="page">
+                    <img src="../../static/images/novaConsultaIconAzul.svg" th:src="@{/images/novaConsultaIconAzul.svg}" alt="Criar Atendimento" class="icone-navegacao">
+                    <span>Criar Atendimento</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <main class="conteudo-principal">
+
+            <!-- CABEÇALHO SUPERIOR ESCURO -->
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Ana Souza</span>
+                        <span class="funcao-usuario">Secretária / Recepção</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <!-- BARRA DE TÍTULO -->
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/novaConsultaIconAzul.svg" th:src="@{/images/novaConsultaIconAzul.svg}" alt="Ícone Criar Atendimento" class="icone-titulo">
+                <h1 class="titulo-pagina">Criar Atendimento</h1>
+            </div>
+
+            <!-- ÁREA DE CONTEÚDO ROLÁVEL -->
+            <div class="area-conteudo">
+
+                <div class="cartao-perfil cartao-criar-atendimento">
+                    <h3 class="titulo-secao-formulario">Tipo de Atendimento</h3>
+                    
+                    <!-- SELETOR DE TIPO (Consulta ou Internação) -->
+                    <div class="seletor-tipo">
+                        <label class="opcao-tipo ativo" onclick="alternarTipo('consulta', event)">
+                            <input type="radio" name="tipoAtendimento" checked hidden>
+                            Consulta
+                        </label>
+                        <label class="opcao-tipo" onclick="alternarTipo('internacao', event)">
+                            <input type="radio" name="tipoAtendimento" hidden>
+                            Internação
+                        </label>
+                    </div>
+
+                    <form class="formulario-perfil">
+                        
+                        <!-- 1. PACIENTE -->
+                        <div class="grupo-formulario">
+                            <label class="rotulo-formulario">Paciente</label>
+                            <input type="text" class="campo-formulario" list="lista-pacientes" placeholder="Digite para pesquisar ou selecione o paciente...">
+                            <datalist id="lista-pacientes">
+                                <option value="Alice Martins">
+                                <option value="Luiza Gomes">
+                                <option value="Monark Igor Power Da Silva">
+                                <option value="Pedro Alves">
+                            </datalist>
+                        </div>
+
+                        <!-- 2. PROFISSIONAL RESPONSÁVEL -->
+                        <div class="grupo-formulario">
+                            <label class="rotulo-formulario">Profissional Responsável</label>
+                            <input type="text" class="campo-formulario" list="lista-profissionais" placeholder="Digite para pesquisar o médico...">
+                            <datalist id="lista-profissionais">
+                                <option value="Dr. Carlos Sales (Pediatria)">
+                                <option value="Dra. Juliana Mendes (Cardiologia)">
+                                <option value="Dr. Roberto Almeida (Ortopedia)">
+                            </datalist>
+                        </div>
+
+                        <!-- ================= BLOCOS CONDICIONAIS ================= -->
+
+                        <!-- CAMPOS EXCLUSIVOS: CONSULTA -->
+                        <div id="bloco-consulta" class="campos-condicionais">
+                            <div class="linha-formulario">
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Data</label>
+                                    <select class="campo-formulario">
+                                        <option value="" disabled selected>Selecione a data</option>
+                                        <option value="2026-10-05">Dia 25/10/2026</option>
+                                        <option value="2026-10-06">Dia 26/10/2026</option>
+                                    </select>
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Horário</label>
+                                    <select class="campo-formulario">
+                                        <option value="" disabled selected>Selecione o horário</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="14:30">14:30</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label class="rotulo-formulario">Motivo da Consulta</label>
+                                <input type="text" class="campo-formulario" placeholder="Ex: Rotina, dor de cabeça, retorno de exames...">
+                            </div>
+                        </div>
+
+                        <!-- CAMPOS EXCLUSIVOS: INTERNAÇÃO (Oculto por padrão) -->
+                        <div id="bloco-internacao" class="campos-condicionais" hidden>
+                            <div class="linha-formulario">
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Quarto / Leito</label>
+                                    <select class="campo-formulario">
+                                        <option value="" disabled selected>Selecione o quarto disponível</option>
+                                        <option value="101-A">Quarto 101 - Ala A (Enfermaria)</option>
+                                        <option value="202-B">Quarto 202 - Ala B (UTI)</option>
+                                        <option value="305-P">Quarto 305 - Ala P (Particular)</option>
+                                    </select>
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Data de Entrada</label>
+                                    <input type="date" class="campo-formulario">
+                                </div>
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label class="rotulo-formulario">Data de Alta</label>
+                                <input type="date" class="campo-formulario">
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label class="rotulo-formulario">Observações</label>
+                                <textarea class="campo-formulario" rows="3" placeholder="Informações relevantes sobre a internação, restrições ou cuidados especiais..."></textarea>
+                            </div>
+                        </div>
+
+                        <hr class="divisor-formulario divisor-criar-atendimento">
+
+                        <!-- BOTÕES DE AÇÃO -->
+                        <div class="acoes-formulario acoes-criar-atendimento">
+                            <button type="button" class="botao-contorno">Cancelar</button>
+                            <button type="button" class="botao-principal">Criar Atendimento</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- SCRIPT PARA ALTERNAR ENTRE CONSULTA E INTERNAÇÃO -->
+    <script>
+        function alternarTipo(tipo, event) {
+            const opConsulta = document.getElementById('bloco-consulta');
+            const opInternacao = document.getElementById('bloco-internacao');
+            const options = document.querySelectorAll('.opcao-tipo');
+
+            options.forEach(opt => opt.classList.remove('ativo'));
+
+            if (tipo === 'consulta') {
+                opConsulta.hidden = false;
+                opInternacao.hidden = true;
+                event.currentTarget.classList.add('ativo');
+            } else {
+                opConsulta.hidden = true;
+                opInternacao.hidden = false;
+                event.currentTarget.classList.add('ativo');
+            }
+        }
+    </script>
+</body>
+</html>

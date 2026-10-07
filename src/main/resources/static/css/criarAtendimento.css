@@ -1,0 +1,40 @@
+.cartao-criar-atendimento {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.divisor-criar-atendimento {
+  margin-top: 10px;
+}
+
+.acoes-criar-atendimento {
+  margin-top: 20px;
+}
+
+.seletor-tipo {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  background-color: #f1f5f9;
+  padding: 6px;
+  border-radius: 14px;
+}
+
+.opcao-tipo {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--cor-texto-secundario);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.opcao-tipo.ativo {
+  background-color: var(--cor-superficie);
+  color: var(--cor-principal);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
