@@ -1,0 +1,51 @@
+.detalhes-consulta {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.acoes-consulta {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grupo-acoes-consulta {
+  display: flex;
+  gap: 12px;
+}
+
+.botao-perigo,
+.botao-sucesso {
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.botao-perigo {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 2px solid #ef4444;
+  transition: all 0.2s ease;
+}
+
+.botao-perigo:hover {
+  background-color: #ef4444;
+  color: var(--cor-superficie);
+}
+
+.botao-sucesso {
+  background-color: #10b981;
+  color: var(--cor-superficie);
+  border: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.botao-sucesso:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+}

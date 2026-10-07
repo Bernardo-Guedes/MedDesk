@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedDesk - Detalhes da Consulta</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+    <link rel="stylesheet" href="../../static/css/detalhesConsulta.css" th:href="@{/css/detalhesConsulta.css}">
+</head>
+<body>
+    <div class="estrutura-aplicativo">
+
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="inicio.html" class="item-navegacao">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="consultasAgendadas.html" class="item-navegacao">
+                    <img src="../../static/images/agendaIcon.svg" th:src="@{/images/agendaIcon.svg}" alt="Agenda" class="icone-navegacao">
+                    <span>Agenda</span>
+                </a>
+                <a href="historico.html" class="item-navegacao">
+                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Histórico" class="icone-navegacao">
+                    <span>Histórico</span>
+                </a>
+                <a href="novaConsulta.html" class="item-navegacao">
+                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Nova Consulta" class="icone-navegacao">
+                    <span>Nova Consulta</span>
+                </a>
+                <a href="perfil.html" class="item-navegacao">
+                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Perfil" class="icone-navegacao">
+                    <span>Perfil</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <main class="conteudo-principal">
+
+            <!-- CABEÇALHO SUPERIOR ESCURO -->
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Dr. Carlos Sales</span>
+                        <span class="funcao-usuario">Pediatra</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <!-- BARRA DE TÍTULO -->
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/doctorIconTitulo.svg" th:src="@{/images/doctorIconTitulo.svg}" alt="Ícone Consulta" class="icone-titulo">
+                <h1 class="titulo-pagina">Detalhes da Consulta</h1>
+            </div>
+
+            <!-- ÁREA DE CONTEÚDO ROLÁVEL -->
+            <div class="area-conteudo">
+
+                <!-- CONTAINER PRINCIPAL COM OS BLOCOS DE INFORMAÇÃO -->
+                <div class="detalhes-consulta">
+
+                    <!-- CARTÃO 1: INFORMAÇÕES DO PACIENTE -->
+                    <div class="cartao-perfil">
+                        <h3 class="titulo-secao-formulario">Informações do Paciente</h3>
+                        
+                        <div class="formulario-perfil">
+                            <!-- Linha 1: Nome e CPF -->
+                            <div class="linha-formulario">
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Nome</label>
+                                    <input type="text" class="campo-formulario" value="Monark Igor Power Da Silva" disabled>
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">CPF</label>
+                                    <input type="text" class="campo-formulario" value="123.456.789-00" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Linha 2: Data de Nascimento e Telefone -->
+                            <div class="linha-formulario">
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Data de Nascimento</label>
+                                    <input type="text" class="campo-formulario" value="15/08/2018" disabled>
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Telefone</label>
+                                    <input type="text" class="campo-formulario" value="+55 (31) 99888-7766" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Linha 3: Endereço -->
+                            <div class="grupo-formulario">
+                                <label class="rotulo-formulario">Endereço</label>
+                                <input type="text" class="campo-formulario" value="Rua das Flores, 123 - Bairro Serra, Belo Horizonte - MG" disabled>
+                            </div>
+
+                            <!-- Linha 4: E-mail -->
+                            <div class="grupo-formulario">
+                                <label class="rotulo-formulario">E-mail para contato</label>
+                                <input type="text" class="campo-formulario" value="monark.igor@email.com" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARTÃO 2: DADOS DA CONSULTA E AÇÕES -->
+                    <div class="cartao-perfil">
+                        <h3 class="titulo-secao-formulario">Atendimento e Observações</h3>
+                        
+                        <form class="formulario-perfil">
+                            <!-- Informações fixas da marcação -->
+                            <div class="linha-formulario">
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Data e Horário</label>
+                                    <input type="text" class="campo-formulario" value="Dia 25 às 19:00" disabled>
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Motivo da Consulta</label>
+                                    <input type="text" class="campo-formulario" value="Avaliação de rotina e sintomas gripais" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Campo editável de Observações Médicas -->
+                            <div class="grupo-formulario">
+                                <label class="rotulo-formulario">Observações Médicas</label>
+                                <textarea class="campo-formulario" rows="5" placeholder="Digite as evoluções clínicas, prescrições ou anotações da consulta...">Paciente relata tosse leve há 3 dias. Sem febre nas últimas 24h. Mantém hidratação adequada.</textarea>
+                            </div>
+
+                            <hr class="divisor-formulario">
+
+                            <!-- BOTÕES DE AÇÃO (Cancelar, Salvar Observações e Concluir) -->
+                            <div class="acoes-formulario acoes-consulta">
+                                <button type="button" class="botao-perigo">Cancelar Consulta</button>
+                                
+                                <div class="grupo-acoes-consulta">
+                                    <button type="button" class="botao-contorno">Salvar Observações</button>
+                                    <button type="button" class="botao-sucesso">Concluir Consulta</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>
