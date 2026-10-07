@@ -351,12 +351,16 @@ select.campo-formulario {
 
 .botao-contorno,
 .botao-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 24px;
   border-radius: 50px;
   font-family: inherit;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .botao-contorno {

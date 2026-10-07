@@ -135,19 +135,22 @@
                             <!-- Campo editável de Observações Médicas -->
                             <div class="grupo-formulario">
                                 <label class="rotulo-formulario">Observações Médicas</label>
-                                <textarea class="campo-formulario" rows="5" placeholder="Digite as evoluções clínicas, prescrições ou anotações da consulta...">Paciente relata tosse leve há 3 dias. Sem febre nas últimas 24h. Mantém hidratação adequada.</textarea>
+                                <textarea id="observacoes-consulta" class="campo-formulario" rows="5" placeholder="Digite as evoluções clínicas, prescrições ou anotações da consulta...">Paciente relata tosse leve há 3 dias. Sem febre nas últimas 24h. Mantém hidratação adequada.</textarea>
                             </div>
 
                             <hr class="divisor-formulario">
 
                             <!-- BOTÕES DE AÇÃO (Cancelar, Salvar Observações e Concluir) -->
-                            <div class="acoes-formulario acoes-consulta">
+                            <div id="acoes-edicao-consulta" class="acoes-formulario acoes-consulta">
                                 <button type="button" class="botao-perigo">Cancelar Consulta</button>
                                 
                                 <div class="grupo-acoes-consulta">
                                     <button type="button" class="botao-contorno">Salvar Observações</button>
                                     <button type="button" class="botao-sucesso">Concluir Consulta</button>
                                 </div>
+                            </div>
+                            <div id="acao-voltar-historico" class="acoes-formulario acoes-consulta acao-voltar-historico" hidden>
+                                <a href="historico.html" th:href="@{historico.html}" class="botao-principal">Voltar para o Histórico</a>
                             </div>
                         </form>
                     </div>
@@ -157,5 +160,12 @@
             </div>
         </main>
     </div>
+    <script>
+        if (new URLSearchParams(window.location.search).get('origem') === 'historico') {
+            document.getElementById('observacoes-consulta').readOnly = true;
+            document.getElementById('acoes-edicao-consulta').hidden = true;
+            document.getElementById('acao-voltar-historico').hidden = false;
+        }
+    </script>
 </body>
 </html>

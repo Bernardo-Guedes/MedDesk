@@ -11,6 +11,10 @@
   align-items: center;
 }
 
+.acoes-consulta[hidden] {
+  display: none;
+}
+
 .grupo-acoes-consulta {
   display: flex;
   gap: 12px;
