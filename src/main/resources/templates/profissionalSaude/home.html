@@ -33,10 +33,6 @@
                     <img src="../../static/images/agendaIcon.svg" th:src="@{/images/agendaIcon.svg}" alt="Agenda" class="icone-navegacao">
                     <span>Agenda</span>
                 </a>
-                <a href="historico.html" class="item-navegacao">
-                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Histórico" class="icone-navegacao">
-                    <span>Histórico</span>
-                </a>
                 <a href="novaConsulta.html" class="item-navegacao">
                     <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Nova Consulta" class="icone-navegacao">
                     <span>Nova Consulta</span>
@@ -73,17 +69,17 @@
 
                 <!-- GRELHA DE MÉTRICAS (CARTÕES SUPERIORES) -->
                 <div class="grade-painel">
-                    <div class="cartao-indicador">
+                    <div class="cartao cartao--gradiente cartao-indicador">
                         <h3 class="titulo-indicador">Consultas de Hoje</h3>
                         <div class="valor-indicador">8</div>
                         <p class="descricao-indicador">Pacientes agendados para hoje</p>
                     </div>
-                    <div class="cartao-indicador">
+                    <div class="cartao cartao--gradiente cartao-indicador">
                         <h3 class="titulo-indicador">Realizadas no Mês</h3>
                         <div class="valor-indicador">124</div>
                         <p class="descricao-indicador">Total de atendimentos concluídos</p>
                     </div>
-                    <div class="cartao-indicador">
+                    <div class="cartao cartao--gradiente cartao-indicador">
                         <h3 class="titulo-indicador">Total Agendadas</h3>
                         <div class="valor-indicador">32</div>
                         <p class="descricao-indicador">Próximos compromissos marcados</p>
@@ -93,7 +89,7 @@
                 <div class="componentes-painel">
 
                     <!-- GRÁFICO DE BARRAS -->
-                    <div class="cartao-componente">
+                    <div class="cartao cartao--gradiente cartao-indicador">
                         <h3 class="cabecalho-componente">Demanda da Semana</h3>
 
                         <div class="grafico-barras">

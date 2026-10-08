@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedDesk - Detalhes do Profissional</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+</head>
+<body>
+    <div class="estrutura-aplicativo">
+
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="home.html" th:href="@{home.html}" class="item-navegacao">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="pacientes.html" th:href="@{pacientes.html}" class="item-navegacao">
+                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Pacientes" class="icone-navegacao">
+                    <span>Pacientes</span>
+                </a>
+                <a href="profissionais.html" th:href="@{profissionais.html}" class="item-navegacao ativo" aria-current="page">
+                    <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIconAzul.svg}" alt="Profissionais" class="icone-navegacao">
+                    <span>Profissionais</span>
+                </a>
+                <a href="internacoes.html" th:href="@{internacoes.html}" class="item-navegacao">
+                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Internações" class="icone-navegacao">
+                    <span>Internações</span>
+                </a>
+                <a href="criarAtendimento.html" th:href="@{criarAtendimento.html}" class="item-navegacao">
+                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Criar Atendimento" class="icone-navegacao">
+                    <span>Criar Atendimento</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="conteudo-principal">
+
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Ana Souza</span>
+                        <span class="funcao-usuario">Secretária / Recepção</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/doctorIconTitulo.svg" th:src="@{/images/doctorIconTitulo.svg}" alt="" class="icone-titulo">
+                <h1 class="titulo-pagina">Detalhes do Profissional</h1>
+            </div>
+
+            <div class="area-conteudo">
+                <div class="coluna-conteudo">
+
+                    <div class="cartao--estatico">
+                        <h3 class="titulo-secao-formulario">Informações do Profissional</h3>
+
+                        <div class="identificacao">
+                            <div class="avatar-usuario avatar--grande"></div>
+                            <div>
+                                <h2 class="identificacao-nome">Dr. Carlos Sales</h2>
+                                <div class="etiquetas">
+                                    <span class="etiqueta">Pediatria</span>
+                                    <span class="etiqueta">CRM 45892-MG</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="divisor-formulario">
+
+                        <div class="formulario">
+                            <div class="linha-formulario">
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Nome completo</label>
+                                    <input type="text" class="campo-formulario" value="Carlos Eduardo Sales" disabled>
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Registro profissional</label>
+                                    <input type="text" class="campo-formulario" value="CRM 45892-MG" disabled>
+                                </div>
+                            </div>
+
+                            <div class="linha-formulario">
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Telefone</label>
+                                    <input type="text" class="campo-formulario" value="+55 (31) 98765-4321" disabled>
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">E-mail para contato</label>
+                                    <input type="text" class="campo-formulario" value="carlos.sales@meddesk.com" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="cabecalho-cartao">
+                            <h3 class="titulo-secao-formulario">Consultas Agendadas (3)</h3>
+
+                            <div class="secao-filtros">
+                                <span class="rotulo-filtro">Filtro:</span>
+                                <button type="button" class="botao-filtro">
+                                    Outubro/26
+                                    <img src="../../static/images/arrowDown.svg" th:src="@{/images/arrowDown.svg}" alt="Seta Baixo">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="lista-consultas">
+                            <a href="detalhesConsulta.html" th:href="@{detalhesConsulta.html}" class="cartao cartao--estatico cartao-lista">
+                                <div class="texto-coluna">
+                                    <span class="nome-principal">Alice Martins</span>
+                                    <span class="subtexto">Retorno de exames</span>
+                                </div>
+                                <div class="etiquetas">
+                                    <span class="etiqueta">09:00</span>
+                                    <span class="etiqueta">09/10/2026</span>
+                                </div>
+                            </a>
+
+                            <a href="detalhesConsulta.html" th:href="@{detalhesConsulta.html}" class="cartao cartao--estatico cartao-lista">
+                                <div class="texto-coluna">
+                                    <span class="nome-principal">Luiza Gomes</span>
+                                    <span class="subtexto">Avaliação de rotina</span>
+                                </div>
+                                <div class="etiquetas">
+                                    <span class="etiqueta">14:30</span>
+                                    <span class="etiqueta">13/10/2026</span>
+                                </div>
+                            </a>
+
+                            <a href="detalhesConsulta.html" th:href="@{detalhesConsulta.html}" class="cartao cartao--estatico cartao-lista">
+                                <div class="texto-coluna">
+                                    <span class="nome-principal">Monark Igor Power Da Silva</span>
+                                    <span class="subtexto">Avaliação de rotina e sintomas gripais</span>
+                                </div>
+                                <div class="etiquetas">
+                                    <span class="etiqueta">19:00</span>
+                                    <span class="etiqueta">25/10/2026</span>
+                                </div>
+                            </a>
+
+                        </div>
+
+                        <div class="acoes-formulario">
+                            <a href="profissionais.html" th:href="@{profissionais.html}" class="botao-contorno">Voltar para Profissionais</a>
+                            <a href="criarAtendimento.html" th:href="@{criarAtendimento.html}" class="botao-principal">Novo Atendimento</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

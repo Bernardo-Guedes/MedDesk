@@ -1,3 +1,7 @@
+/* =========================================================
+   Cores padrão do sistema
+   ========================================================= */
+
 :root {
   --cor-azul-marinho: #001f3f;
   --cor-fundo: #eef1f5;
@@ -14,7 +18,22 @@
   --sombra: rgba(0, 0, 0, 0.05);
   --sombra-principal: rgba(0, 102, 255, 0.25);
   --sombra-destaque: rgba(0, 180, 216, 0.1);
+  --cor-sucesso: #10b981;
+  --cor-sucesso-texto: #047857;
+  --cor-sucesso-fundo: #ecfdf5;
+  --cor-perigo: #ef4444;
+  --cor-perigo-texto: #b91c1c;
+  --cor-perigo-fundo: #fef2f2;
+  --cor-info-fundo: #eff6ff;
+  --cor-sucesso-hover: #059669;
+  --cor-fundo-tipo: #f1f5f9;
+  --cor-borda-suave: #f0f2f5;  
 }
+
+
+/* =========================================================
+   Design geral do sistema
+   ========================================================= */
 
 * {
   margin: 0;
@@ -33,6 +52,10 @@ body {
   display: flex;
   height: 100%;
 }
+
+/* =========================================================
+   Design da barra lateral do sistema
+   ========================================================= */
 
 .barra-lateral {
   width: 260px;
@@ -77,8 +100,6 @@ body {
 }
 
 .item-navegacao svg {
-  width: 32px;
-  height: 32px;
   flex: 0 0 32px;
   margin-right: 16px;
 }
@@ -100,12 +121,35 @@ body {
   color: var(--cor-principal);
 }
 
+
+/* =========================================================
+   Design padrão do conteúdo principal
+   ========================================================= */
+
 .conteudo-principal {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
+
+.area-conteudo {
+  flex: 1;
+  background-color: var(--cor-fundo);
+  padding: 32px 40px;
+  overflow-y: auto;
+}
+
+.lista-consultas {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* =========================================================
+   Design padrão do cabeçalho
+   ========================================================= */
 
 .cabecalho-superior {
   height: 90px;
@@ -140,6 +184,10 @@ body {
   color: var(--cor-superficie);
 }
 
+/* =========================================================
+   Design do avatar do sistema
+   ========================================================= */
+
 .avatar-usuario {
   width: 46px;
   height: 46px;
@@ -147,6 +195,17 @@ body {
   border: 2px solid var(--cor-destaque);
   background-color: transparent;
 }
+
+.avatar--grande {
+  width: 88px;
+  height: 88px;
+  border-width: 4px;
+  font-size: 30px;
+}
+
+/* =========================================================
+   Design do título da página
+   ========================================================= */
 
 .barra-titulo-pagina {
   background-color: var(--cor-superficie);
@@ -177,12 +236,41 @@ body {
   color: var(--cor-principal);
 }
 
-.area-conteudo {
-  flex: 1;
-  background-color: var(--cor-fundo);
-  padding: 32px 40px;
-  overflow-y: auto;
+/* =========================================================
+   Design das etiquetas
+   ========================================================= */
+
+.etiquetas {
+  display: flex;
+  gap: 12px;
 }
+
+.etiqueta {
+  padding: 6px 14px;
+  font-size: 14px;
+  border: 2px solid var(--cor-destaque);
+  border-radius: 50px;
+  font-weight: 700;
+  background-color: var(--cor-superficie);
+  color: var(--cor-texto);
+}
+
+.etiqueta--sucesso {
+  background-color: var(--cor-sucesso-fundo);
+  border-color: var(--cor-sucesso);
+  color: var(--cor-sucesso-texto);
+}
+
+.etiqueta--perigo {
+  background-color: var(--cor-perigo-fundo);
+  border-color: var(--cor-perigo);
+  color: var(--cor-perigo-texto);
+}
+
+
+/* =========================================================
+   Design dos filtros
+   ========================================================= */
 
 .secao-filtros {
   display: flex;
@@ -213,61 +301,95 @@ body {
   cursor: pointer;
 }
 
-.lista-consultas {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-}
+/* =========================================================
+   Design dos cartões
+   ========================================================= */
 
-.cartao-consulta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: inherit;
-  text-decoration: none;
+.cartao {
   background-color: var(--cor-superficie);
-  padding: 20px 32px;
-  border-radius: 50px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
-  cursor: pointer;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.cartao-consulta:hover {
+.cartao--estreito {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.cartao--gradiente {
+  border: 3px solid transparent;
+  background:
+    linear-gradient(var(--cor-superficie), var(--cor-superficie)) padding-box,
+    linear-gradient(135deg, var(--cor-principal), var(--cor-destaque)) border-box;
+}
+
+.cartao:hover {
   box-shadow: 0 8px 25px var(--sombra-principal);
   transform: translateY(-2px);
   z-index: 2;
   position: relative;
 }
 
-.nome-paciente {
+.cartao-lista {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: inherit;
+  text-decoration: none;
+  padding: 20px 32px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.cabecalho-cartao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cabecalho-cartao .titulo-secao-formulario {
+  margin-bottom: 0;
+}
+
+.cabecalho-cartao .secao-filtros {
+  width: auto;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   Design da identificação do paciente
+   ========================================================= */
+
+.nome-principal {
   font-size: 18px;
   font-weight: 600;
 }
 
-.etiquetas-consulta {
+.identificacao {
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
 }
 
-.etiqueta {
-  padding: 8px 28px;
-  border: 2px solid var(--cor-destaque);
-  border-radius: 50px;
+.identificacao-nome {
+  margin-bottom: 8px;
+  font-size: 22px;
   font-weight: 700;
-  font-size: 18px;
-  background-color: var(--cor-superficie);
-  color: var(--cor-texto);
+  color: var(--cor-principal);
 }
 
-.cartao-perfil {
-  background-color: var(--cor-superficie);
-  padding: 32px;
-  border-radius: 24px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-}
+/* =========================================================
+   Design do formulario
+   ========================================================= */
 
 .titulo-secao-formulario {
   font-size: 18px;
@@ -276,7 +398,7 @@ body {
   margin-bottom: 24px;
 }
 
-.formulario-perfil {
+.formulario {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -293,7 +415,7 @@ body {
   flex-direction: column;
   gap: 8px;
   margin-bottom: 20px;
-}
+} 
 
 .rotulo-formulario {
   font-size: 14px;
@@ -313,7 +435,7 @@ body {
   transition: all 0.2s ease;
 }
 
-.campo-formulario:focus {
+.campo-formulario:focus, .campo-icone:focus-within {
   border-color: var(--cor-destaque);
   background-color: var(--cor-superficie);
   box-shadow: 0 0 0 3px var(--sombra-destaque);
@@ -349,6 +471,10 @@ select.campo-formulario {
   margin-top: 16px;
 }
 
+/* =========================================================
+   Design dos botões
+   ========================================================= */
+
 .botao-contorno,
 .botao-principal {
   display: inline-flex;
@@ -372,10 +498,6 @@ select.campo-formulario {
   transition: background 0.2s;
 }
 
-.botao-contorno:hover {
-  background-color: var(--cor-superficie-ativa);
-}
-
 .botao-principal {
   background-color: var(--cor-principal);
   color: var(--cor-superficie);
@@ -383,13 +505,113 @@ select.campo-formulario {
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
+.botao-contorno:hover {
+  background-color: var(--cor-superficie-ativa);
+}
+
 .botao-principal:hover {
   background-color: var(--cor-principal-hover);
   transform: translateY(-1px);
 }
 
+/* =========================================================
+   Tipo de informação (Consulta - Internação) 
+   Telas: detalhesPaciente e criarAtendimento
+   ========================================================= */
+
+.seletor-tipo {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  background-color: var(--cor-fundo-tipo);
+  padding: 6px;
+  border-radius: 14px;
+}
+
+.opcao-tipo {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.opcao-tipo.ativo {
+  background-color: var(--cor-superficie);
+  color: var(--cor-principal);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================================
+   Mensagem de erro
+   ========================================================= */
+
+.mensagem-erro {
+  color: var(--cor-perigo) !important;
+}
+
+/* =========================================================
+   Medias
+   ========================================================= */
+
 @media (max-width: 900px) {
   .linha-formulario {
     grid-template-columns: 1fr;
   }
+}
+
+
+
+
+.campo-icone {
+  display: flex;
+  align-items: stretch;
+  border: 2px solid var(--cor-borda);
+  border-radius: 12px;
+  background-color: var(--cor-superficie-campo);
+  transition: all 0.2s ease;
+}
+
+.icone-campo {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  border-right: 1px solid var(--cor-borda);
+  color: var(--cor-principal);
+}
+
+.icone-campo svg,
+.icone-campo img {
+  width: 24px;
+  height: 24px;
+}
+
+.campo-icone .campo-formulario,
+.campo-icone .campo-formulario:focus {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.texto-coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+ 
+.subtexto {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
 }

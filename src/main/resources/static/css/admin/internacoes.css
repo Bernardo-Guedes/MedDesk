@@ -1,3 +1,7 @@
+/* =========================================================
+   Design dos cartões indicadores
+   ========================================================= */
+
 .grade-indicadores-internacao {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -5,15 +9,13 @@
   margin-bottom: 24px;
 }
 
-.cartao-indicador-internacao,
-.painel-internacao {
-  background-color: var(--cor-superficie);
-  border-radius: 20px;
-  box-shadow: 0 4px 15px var(--sombra);
+.cartao-indicador-internacao:hover,
+.painel-internacao:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .cartao-indicador-internacao {
-  padding: 24px;
   border-top: 5px solid var(--cor-destaque);
 }
 
@@ -27,14 +29,6 @@
   font-size: 14px;
 }
 
-.cartao-disponivel {
-  border-top-color: #2e9d68;
-}
-
-.cartao-ocupado {
-  border-top-color: var(--cor-principal);
-}
-
 .valor-indicador-internacao {
   margin: 8px 0;
   color: var(--cor-principal);
@@ -44,17 +38,12 @@
 }
 
 .painel-internacao {
-  padding: 24px;
   margin-bottom: 24px;
 }
 
-.cabecalho-painel-internacao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
+/* =========================================================
+   Design dos cabeçalho
+   ========================================================= */
 
 .cabecalho-painel-internacao h2 {
   color: var(--cor-principal);
@@ -67,23 +56,9 @@
   font-size: 14px;
 }
 
-.legenda-disponibilidade,
-.total-pacientes {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--cor-texto-secundario);
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.legenda-disponibilidade > span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #2e9d68;
-}
+/* =========================================================
+   Design dos cartões de quartos
+   ========================================================= */
 
 .grade-quartos {
   display: grid;
@@ -105,19 +80,12 @@
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.cartao-quarto:hover,
-.cartao-quarto:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px var(--sombra);
-  outline: none;
-}
-
 .cartao-quarto.disponivel {
-  border-left-color: #2e9d68;
+  border-left-color: var(--cor-sucesso);
 }
 
 .cartao-quarto.ocupado {
-  border-left-color: #dc3545;
+  border-left-color: var(--cor-perigo);
 }
 
 .cartao-quarto h3 {
@@ -125,25 +93,15 @@
   font-size: 16px;
 }
 
-.estado-quarto {
-  padding: 5px 9px;
-  border-radius: 20px;
-  background-color: #e8f5ee;
-  color: #21754b;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.ocupado .estado-quarto {
-  background-color: #fdebec;
-  color: #b42332;
-}
-
 .cartao-quarto p {
   grid-column: 1 / -1;
   color: var(--cor-texto-secundario);
   font-size: 13px;
 }
+
+/* =========================================================
+   Medias
+   ========================================================= */
 
 @media (max-width: 1000px) {
   .grade-indicadores-internacao,

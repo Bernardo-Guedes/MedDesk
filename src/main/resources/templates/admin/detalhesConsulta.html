@@ -16,7 +16,6 @@
 <body>
     <div class="estrutura-aplicativo">
 
-        <!-- BARRA LATERAL (SIDEBAR) -->
         <aside class="barra-lateral">
             <div class="cabecalho-barra-lateral">
                 <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
@@ -27,17 +26,21 @@
                     <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
                     <span>Início</span>
                 </a>
-                <a href="consultasAgendadas.html" class="item-navegacao">
-                    <img src="../../static/images/agendaIcon.svg" th:src="@{/images/agendaIcon.svg}" alt="Agenda" class="icone-navegacao">
-                    <span>Agenda</span>
+                <a href="pacientes.html" class="item-navegacao ativo" aria-current="page">
+                    <img src="../../static/images/perfilIconAzul.svg" th:src="@{/images/perfilIconAzul.svg}" alt="Pacientes" class="icone-navegacao">
+                    <span>Pacientes</span>
                 </a>
-                <a href="novaConsulta.html" class="item-navegacao">
-                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Nova Consulta" class="icone-navegacao">
-                    <span>Nova Consulta</span>
+                <a href="profissionais.html" class="item-navegacao">
+                    <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIcon.svg}" alt="Profissionais" class="icone-navegacao">
+                    <span>Profissionais</span>
                 </a>
-                <a href="perfil.html" class="item-navegacao">
-                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Perfil" class="icone-navegacao">
-                    <span>Perfil</span>
+                <a href="internacoes.html" class="item-navegacao">
+                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Internações" class="icone-navegacao">
+                    <span>Internações</span>
+                </a>
+                <a href="criarAtendimento.html" class="item-navegacao">
+                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Criar Atendimento" class="icone-navegacao">
+                    <span>Criar Atendimento</span>
                 </a>
             </nav>
         </aside>
@@ -49,8 +52,8 @@
             <header class="cabecalho-superior">
                 <div class="perfil-usuario">
                     <div class="informacoes-usuario">
-                        <span class="nome-usuario">Dr. Carlos Sales</span>
-                        <span class="funcao-usuario">Pediatra</span>
+                        <span class="nome-usuario">Ana Souza</span>
+                        <span class="funcao-usuario">Secretária / Recepção</span>
                     </div>
                     <div class="avatar-usuario"></div>
                 </div>

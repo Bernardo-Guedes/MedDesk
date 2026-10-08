@@ -31,25 +31,25 @@
 }
 
 .botao-perigo {
-  background-color: #fef2f2;
-  color: #b91c1c;
-  border: 2px solid #ef4444;
+  background-color: var(--cor-perigo-fundo);
+  color: var(--cor-perigo-texto);
+  border: 2px solid var(--cor-perigo);
   transition: all 0.2s ease;
 }
 
 .botao-perigo:hover {
-  background-color: #ef4444;
+  background-color: var(--cor-perigo);
   color: var(--cor-superficie);
 }
 
 .botao-sucesso {
-  background-color: #10b981;
+  background-color: var(--cor-sucesso);
   color: var(--cor-superficie);
   border: none;
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .botao-sucesso:hover {
-  background-color: #059669;
+  background-color: var(--cor-sucesso-hover);
   transform: translateY(-1px);
 }

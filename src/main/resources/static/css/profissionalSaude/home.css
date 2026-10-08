@@ -6,28 +6,12 @@
   margin-bottom: 40px;
 }
 
-.cartao-indicador,
-.cartao-componente {
-  border: 3px solid transparent;
-  background:
-    linear-gradient(var(--cor-superficie), var(--cor-superficie)) padding-box,
-    linear-gradient(135deg, var(--cor-principal), var(--cor-destaque)) border-box;
-  border-radius: 24px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-}
-
 .cartao-indicador {
-  padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   transition: all 0.3s ease;
   cursor: default;
-}
-
-.cartao-indicador:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 102, 255, 0.15);
 }
 
 .titulo-indicador {
@@ -59,7 +43,6 @@
 }
 
 .cartao-componente {
-  padding: 32px;
   display: flex;
   flex-direction: column;
 }
@@ -143,7 +126,7 @@
   align-items: center;
   gap: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #f0f2f5;
+  border-bottom: 1px solid var(--cor-borda-suave);
 }
 
 .item-lista-rapida:last-child {

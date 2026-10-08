@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedDesk - Profissionais</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+    <link rel="stylesheet" href="../../static/css/componentes.css" th:href="@{/css/componentes.css}">
+</head>
+<body>
+    <div class="estrutura-aplicativo">
+
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="home.html" th:href="@{home.html}" class="item-navegacao">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="pacientes.html" th:href="@{pacientes.html}" class="item-navegacao">
+                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Pacientes" class="icone-navegacao">
+                    <span>Pacientes</span>
+                </a>
+                <a href="profissionais.html" th:href="@{profissionais.html}" class="item-navegacao ativo" aria-current="page">
+                    <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIconAzul.svg}" alt="Profissionais" class="icone-navegacao">
+                    <span>Profissionais</span>
+                </a>
+                <a href="internacoes.html" th:href="@{internacoes.html}" class="item-navegacao">
+                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Internações" class="icone-navegacao">
+                    <span>Internações</span>
+                </a>
+                <a href="criarAtendimento.html" th:href="@{criarAtendimento.html}" class="item-navegacao">
+                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Criar Atendimento" class="icone-navegacao">
+                    <span>Criar Atendimento</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="conteudo-principal">
+
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Ana Souza</span>
+                        <span class="funcao-usuario">Secretária / Recepção</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/doctorIconTitulo.svg" th:src="@{/images/doctorIconTitulo.svg}" alt="" class="icone-titulo">
+                <h1 class="titulo-pagina">Profissionais</h1>
+            </div>
+
+            <div class="area-conteudo">
+
+                <div class="secao-filtros secao-filtros--entre">
+                    <div class="campo-icone campo-busca">
+                        <span class="icone-campo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </span>
+                        <input type="search" id="busca-profissional" class="campo-formulario"
+                               placeholder="Buscar por nome"
+                               aria-label="Buscar profissional" autocomplete="off"
+                               data-filtra-lista="#lista-profissionais"
+                               data-vazio="#mensagem-sem-resultado">
+                    </div>
+
+                    <div class="secao-filtros">
+                        <span class="rotulo-filtro">Filtro:</span>
+                        <button type="button" class="botao-filtro">
+                            Todas as especialidades
+                            <img src="../../static/images/arrowDown.svg" th:src="@{/images/arrowDown.svg}" alt="Seta Baixo">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lista-consultas" id="lista-profissionais">
+
+                    <a href="detalhesProfissional.html?profissional=1" th:href="@{detalhesProfissional.html(profissional=1)}"
+                       class="cartao cartao-lista" data-busca="Dr. Carlos Sales Pediatria">
+                        <div class="identificacao">
+                            <div class="avatar-usuario"></div>
+                            <div class="texto-coluna">
+                                <span class="nome-principal">Dr. Carlos Sales</span>
+                                <span class="subtexto">Pediatria</span>
+                            </div>
+                        </div>
+                        <div class="etiquetas">
+                            <span class="etiqueta">CRM 45892-MG</span>
+                            <span class="etiqueta">3 consultas agendadas</span>
+                        </div>
+                    </a>
+
+                    <a href="detalhesProfissional.html?profissional=2" th:href="@{detalhesProfissional.html(profissional=2)}"
+                       class="cartao cartao-lista" data-busca="Dra. Juliana Mendes Cardiologia">
+                        <div class="identificacao">
+                            <div class="avatar-usuario"></div>
+                            <div class="texto-coluna">
+                                <span class="nome-principal">Dra. Juliana Mendes</span>
+                                <span class="subtexto">Cardiologia</span>
+                            </div>
+                        </div>
+                        <div class="etiquetas">
+                            <span class="etiqueta">CRM 51230-MG</span>
+                            <span class="etiqueta">5 consultas agendadas</span>
+                        </div>
+                    </a>
+
+                    <a href="detalhesProfissional.html?profissional=3" th:href="@{detalhesProfissional.html(profissional=3)}"
+                       class="cartao cartao-lista" data-busca="Dr. Roberto Almeida Ortopedia">
+                        <div class="identificacao">
+                            <div class="avatar-usuario"></div>
+                            <div class="texto-coluna">
+                                <span class="nome-principal">Dr. Roberto Almeida</span>
+                                <span class="subtexto">Ortopedia</span>
+                            </div>
+                        </div>
+                        <div class="etiquetas">
+                            <span class="etiqueta">CRM 38764-MG</span>
+                            <span class="etiqueta etiqueta--sucesso">Agenda livre</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

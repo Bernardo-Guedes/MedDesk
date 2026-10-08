@@ -25,11 +25,11 @@
                     <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
                     <span>Início</span>
                 </a>
-                <a href="#" class="item-navegacao">
+                <a href="pacientes.html" th:href="@{pacientes}" class="item-navegacao">
                     <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Pacientes" class="icone-navegacao">
                     <span>Pacientes</span>
                 </a>
-                <a href="#" class="item-navegacao">
+                <a href="profissionais.html" class="item-navegacao">
                     <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIcon.svg}" alt="Profissionais" class="icone-navegacao">
                     <span>Profissionais</span>
                 </a>
@@ -62,56 +62,55 @@
 
             <div class="area-conteudo">
                 <section class="grade-indicadores-internacao" aria-label="Resumo das internações">
-                    <article class="cartao-indicador-internacao">
+                    <article class="cartao cartao-indicador-internacao">
                         <h2>Número de Quartos</h2>
                         <p class="valor-indicador-internacao">24</p>
                     </article>
-                    <article class="cartao-indicador-internacao cartao-disponivel">
+                    <article class="cartao cartao-indicador-internacao">
                         <h2>Quartos disponíveis</h2>
                         <p class="valor-indicador-internacao">6</p>
                     </article>
-                    <article class="cartao-indicador-internacao cartao-ocupado">
+                    <article class="cartao cartao-indicador-internacao">
                         <h2>Pacientes internados</h2>
                         <p class="valor-indicador-internacao">18</p>
                     </article>
                 </section>
 
-                <section class="painel-internacao">
-                    <div class="cabecalho-painel-internacao">
+                <section class="cartao painel-internacao">
+                    <div class="cabecalho-cartao">
                         <div>
                             <h2>Ocupação dos Quartos</h2>
                         </div>
-                        <span class="legenda-disponibilidade"><span></span> Disponível</span>
                     </div>
                     <div class="grade-quartos">
-                        <a class="cartao-quarto ocupado" href="detalhesQuarto.html?quarto=101">
+                        <a class="cartao cartao-quarto ocupado" href="detalhesQuarto.html?quarto=101">
                             <div><h3>Quarto 101</h3></div>
-                            <span class="estado-quarto">Ocupado</span>
+                            <span class="etiqueta etiqueta--perigo">Ocupado</span>
                             <p>2 de 2 leitos ocupados</p>
                         </a>
-                        <a class="cartao-quarto disponivel" href="detalhesQuarto.html?quarto=102">
+                        <a class="cartao cartao-quarto disponivel" href="detalhesQuarto.html?quarto=102">
                             <div><h3>Quarto 102</h3></div>
-                            <span class="estado-quarto">Disponível</span>
+                            <span class="etiqueta etiqueta--sucesso">Disponpivel</span>
                             <p>2 leitos disponíveis</p>
                         </a>
-                        <a class="cartao-quarto ocupado" href="detalhesQuarto.html?quarto=201">
+                        <a class="cartao cartao-quarto ocupado" href="detalhesQuarto.html?quarto=201">
                             <div><h3>Quarto 201</h3></div>
-                            <span class="estado-quarto">Ocupado</span>
+                            <span class="etiqueta etiqueta--perigo">Ocupado</span>
                             <p>1 de 1 leito ocupado</p>
                         </a>
-                        <a class="cartao-quarto disponivel" href="detalhesQuarto.html?quarto=202">
+                        <a class="cartao cartao-quarto disponivel" href="detalhesQuarto.html?quarto=202">
                             <div><h3>Quarto 202</h3></div>
-                            <span class="estado-quarto">Disponível</span>
+                            <span class="etiqueta etiqueta--sucesso">Disponpivel</span>
                             <p>1 leito disponível</p>
                         </a>
-                        <a class="cartao-quarto ocupado" href="detalhesQuarto.html?quarto=301">
+                        <a class="cartao cartao-quarto ocupado" href="detalhesQuarto.html?quarto=301">
                             <div><h3>Quarto 301</h3></div>
-                            <span class="estado-quarto">Ocupado</span>
+                            <span class="etiqueta etiqueta--perigo">Ocupado</span>
                             <p>1 de 1 leito ocupado</p>
                         </a>
-                        <a class="cartao-quarto disponivel" href="detalhesQuarto.html?quarto=302">
+                        <a class="cartao cartao-quarto disponivel" href="detalhesQuarto.html?quarto=302">
                             <div><h3>Quarto 302</h3></div>
-                            <span class="estado-quarto">Disponível</span>
+                            <span class="etiqueta etiqueta--sucesso">Disponpivel</span>
                             <p>1 leito disponível</p>
                         </a>
                     </div>

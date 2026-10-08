@@ -40,11 +40,11 @@
 }
 
 .status-ocupado {
-  color: #b42332;
+  color: var(--cor-perigo-texto);
 }
 
 .status-disponivel {
-  color: #21754b;
+  color: var(--cor-sucesso-texto);
 }
 
 .ocupacao-detalhe-quarto {
@@ -90,10 +90,10 @@
 .botao-remover-paciente {
   flex: 0 0 auto;
   padding: 10px 18px;
-  border: 2px solid #ef4444;
+  border: 2px solid var(--cor-perigo);
   border-radius: 50px;
-  background-color: #fef2f2;
-  color: #b91c1c;
+  background-color: var(--cor-perigo-fundo);
+  color: var(--cor-perigo-texto);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -101,7 +101,7 @@
 }
 
 .botao-remover-paciente:hover {
-  background-color: #ef4444;
+  background-color: var(--cor-perigo);
   color: var(--cor-superficie);
 }
 
@@ -112,7 +112,7 @@
 }
 
 .mensagem-quarto-invalido {
-  color: #b42332;
+  color: var(--cor-perigo-texto);
 }
 
 @media (max-width: 650px) {

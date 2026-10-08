@@ -1,0 +1,135 @@
+body.pagina-login {
+  height: auto;
+  min-height: 100vh;
+  overflow: auto;
+  display: grid;
+  place-items: center;
+  padding: 40px 24px;
+  background-color: var(--cor-fundo);
+}
+
+.estrutura-login {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.painel-boas-vindas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: start;
+  position: sticky;
+  top: 40px;
+  height: 560px;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 4px 15px var(--sombra);
+  background:
+    linear-gradient(to top, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 55%),
+    url("../../images/login_image.png") center / cover no-repeat;
+}
+
+.logo-login {
+  height: 72px;
+  width: fit-content;
+  object-fit: contain;
+}
+
+.titulo-boas-vindas {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--cor-azul-marinho);
+  margin-bottom: 8px;
+}
+
+.texto-boas-vindas {
+  max-width: 420px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--cor-texto-secundario);
+}
+
+.cartao-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px;
+}
+
+.cabecalho-login {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.cabecalho-login .icone-titulo {
+  margin-right: 0;
+}
+
+.subtitulo-login {
+  font-size: 16px;
+  color: var(--cor-texto-secundario);
+}
+
+.cartao-login .grupo-formulario {
+  margin-bottom: 0;
+}
+
+.cartao-login .rotulo-formulario {
+  font-size: 15px;
+  color: var(--cor-azul-marinho);
+}
+
+.botao-icone {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  border: none;
+  background: none;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.botao-icone:hover,
+.botao-icone:focus-visible {
+  color: var(--cor-principal);
+}
+
+.botao-icone svg {
+  width: 22px;
+  height: 22px;
+}
+
+.botao-bloco {
+  width: 100%;
+  margin-top: 0;
+  padding: 16px 24px;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.botao-bloco svg {
+  width: 22px;
+  height: 22px;
+}
+
+.divisor-ou {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+}
+
+.divisor-ou::before,
+.divisor-ou::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--cor-borda);
+}

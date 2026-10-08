@@ -27,11 +27,11 @@
                     <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
                     <span>Início</span>
                 </a>
-                <a href="#" class="item-navegacao">
+                <a href="pacientes.html" th:href="@{pacientes}" class="item-navegacao">
                     <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Pacientes" class="icone-navegacao">
                     <span>Pacientes</span>
                 </a>
-                <a href="#" class="item-navegacao">
+                <a href="profissionais.html" class="item-navegacao">
                     <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIcon.svg}" alt="Profissionais" class="icone-navegacao">
                     <span>Profissionais</span>
                 </a>
@@ -70,7 +70,7 @@
             <!-- ÁREA DE CONTEÚDO ROLÁVEL -->
             <div class="area-conteudo">
 
-                <div class="cartao-perfil cartao-criar-atendimento">
+                <div class="cartao cartao--estreito">
                     <h3 class="titulo-secao-formulario">Tipo de Atendimento</h3>
                     
                     <!-- SELETOR DE TIPO (Consulta ou Internação) -->
@@ -85,7 +85,7 @@
                         </label>
                     </div>
 
-                    <form class="formulario-perfil">
+                    <form class="formulario">
                         
                         <!-- 1. PACIENTE -->
                         <div class="grupo-formulario">
