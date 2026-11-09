@@ -28,7 +28,6 @@ function ListItem({ nome, cargo }: ListItemProps) {
       </div>
       <div className="flex items-center gap-3">
         <span className="border-2 border-destaque rounded-full px-2 py-1 text-sm font-semibold">CPF 234.567.890-11</span>
-        <span className="border-2 border-destaque rounded-full px-2 py-1 text-sm font-semibold">Internado</span>
       </div>
     </div>
   );
