@@ -1,12 +1,14 @@
 interface ButtonProps{
     submit?:boolean;
     texto: string;
+    onClick?: () => void;
 }
 
-function PrimaryButton({submit, texto}:ButtonProps){
+function PrimaryButton({submit, texto, onClick}:ButtonProps){
     return(
         <button 
         type={submit ? "submit" : "button"}
+        onClick={onClick}
         className="rounded-full py-2 px-4 text-white font-semibold bg-principal"
         >    
             {texto}
@@ -14,11 +16,24 @@ function PrimaryButton({submit, texto}:ButtonProps){
     );
 }
 
-function SecondaryButton({submit, texto}:ButtonProps){
+function SecondaryButton({submit, texto, onClick}:ButtonProps){
     return(
         <button 
         type={submit ? "submit" : "button"}
+        onClick={onClick}
         className="rounded-full py-2 px-4 text-black font-semibold border border-destaque"
+        >    
+            {texto}
+        </button>
+    );
+}
+
+function DangerButton({submit, texto, onClick}:ButtonProps){
+    return(
+        <button 
+        type={submit ? "submit" : "button"}
+        onClick={onClick}
+        className="rounded-full py-2 px-4 text-white font-semibold bg-red-600 hover:bg-red-700"
         >    
             {texto}
         </button>
@@ -27,5 +42,6 @@ function SecondaryButton({submit, texto}:ButtonProps){
 
 export {
   PrimaryButton,
-  SecondaryButton
+  SecondaryButton,
+  DangerButton
 }

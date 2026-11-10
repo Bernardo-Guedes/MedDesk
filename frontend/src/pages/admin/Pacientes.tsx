@@ -1,6 +1,7 @@
 import ListItem from "@/components/ListItem";
 import { User } from "lucide-react";
 import SearchInput from "@/components/ui/searchInput"
+import { Link } from "react-router";
 
 function Pacientes() {
   return (
@@ -11,7 +12,9 @@ function Pacientes() {
       </div>
       <div className="mt-8">
         <SearchInput/>
-        <ListItem nome="Alice Martins" />
+        <Link to="/admin/pacientes/1" className="block">
+          <ListItem nome="Alice Martins" />
+        </Link>
         <ListItem nome="Luiza Gomes" />
         <ListItem nome="Mariana Costa" />
       </div>

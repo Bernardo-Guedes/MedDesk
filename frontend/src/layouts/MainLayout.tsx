@@ -4,11 +4,11 @@ import Header from "../components/Header";
 
 function MainLayout() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex h-screen flex-col bg-background">
       <Header />
-      <main className="flex">
+      <main className="flex min-h-0 flex-1">
         <Sidebar />
-        <div className="flex-1">
+        <div className="flex-1 overflow-y-auto">
             <Outlet />
         </div>
       </main>

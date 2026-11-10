@@ -7,6 +7,8 @@ import Pacientes from "./pages/admin/Pacientes";
 import Profissionais from "./pages/admin/Profissionais";
 import Internacoes from "./pages/admin/Internacoes";
 import CriarAtendimento from "./pages/admin/CriarAtendimento";
+import DetalhesConsulta from "./pages/admin/DetalhesConsulta";
+import DetalhesPaciente from "./pages/admin/DetalhesPaciente";
 
 function App() {
   return (
@@ -14,11 +16,19 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/admin/" element={<Home />} />
         <Route path="/admin/pacientes" element={<Pacientes />} />
+        <Route
+          path="/admin/pacientes/1"
+          element={<DetalhesPaciente />}
+        />
         <Route path="/admin/profissionais" element={<Profissionais />} />
         <Route path="/admin/internacoes" element={<Internacoes />} />
         <Route
           path="/admin/atendimentos/novo"
           element={<CriarAtendimento />}
+        />
+        <Route
+          path="/admin/consultas/:consultaId"
+          element={<DetalhesConsulta />}
         />
       </Route>
     </Routes>

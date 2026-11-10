@@ -22,8 +22,8 @@ function ListItem({ nome, cargo }: ListItemProps) {
           </AvatarFallback>
         </Avatar>
         <div className="flex flex-col">
-            <span className="font-semibold text-lg">{nome}</span>
-            {cargo && <span className="text-sm font-light">{cargo}</span>}
+            <span className="font-bold text-lg">{nome}</span>
+            {cargo && <span className="text-sm font-semibold">{cargo}</span>}
         </div>
       </div>
       <div className="flex items-center gap-3">

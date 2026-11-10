@@ -23,8 +23,8 @@ function Sidebar() {
   ];
 
   return (
-    <aside>
-      <div className="bg-superficie p-5 min-h-screen">
+    <aside className="h-full">
+      <div className="bg-superficie p-5 h-full overflow-y-auto">
         <ul className="flex flex-col gap-3 text-lg font-semibold">
           {links.map(({ to, label, icon: Icon, end }) => (
             <li key={to}>
