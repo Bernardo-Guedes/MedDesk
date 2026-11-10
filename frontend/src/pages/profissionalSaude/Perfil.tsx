@@ -71,6 +71,7 @@ function Perfil() {
               <UserRound size={64} aria-hidden="true" />
             </AvatarFallback>
           </Avatar>
+          {/* Identificação e dados profissionais de exemplo. */}
           <h2 className="mt-4 text-2xl font-bold text-principal">Dr. Carlos Sales</h2>
           <p className="mb-4 text-slate-600">Pediatra</p>
           <div className="flex flex-wrap justify-center gap-2">
@@ -108,6 +109,7 @@ function Perfil() {
         <section className="min-w-0 rounded-2xl bg-white p-6 shadow-sm md:p-8">
           <h2 className="mb-6 text-xl font-semibold text-principal">Informações Pessoais</h2>
           <form onSubmit={salvar}>
+            {/* Nome, registro e especialidade de exemplo. */}
             <dl className="grid gap-5 sm:grid-cols-2">
               <InfoField rotulo="Nome" valor="Carlos Eduardo Sales" />
               <InfoField rotulo="Registro profissional" valor="CRM 45892-MG" />

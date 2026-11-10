@@ -69,6 +69,7 @@ function Profissionais() {
             ]}
           />
         </div>
+        {/* CPF de exemplo exibido para os profissionais. */}
         {filtrados.length ? filtrados.map((profissional) => (
           <ListItem
             key={profissional.nome}

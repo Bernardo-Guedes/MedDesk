@@ -6,6 +6,7 @@ function Header({ profissional = false }: { profissional?: boolean }) {
     <header>
       <div className="flex items-center justify-between px-10 py-3 bg-header">
         <img src={logo} alt="Logo MedDesk" className="w-25 ms-8" />
+        {/* Identidade e fotografia de exemplo do usuário. */}
         <div className="flex gap-3">
           <div className="flex flex-col items-center">
             <span className="text-white font-semibold text-lg">

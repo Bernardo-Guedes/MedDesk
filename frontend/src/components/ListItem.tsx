@@ -11,6 +11,7 @@ interface ListItemProps {
   destaque?: ReactNode;
 }
 
+// CPF e fotografia padrão de exemplo.
 function ListItem({
   nome,
   cargo,

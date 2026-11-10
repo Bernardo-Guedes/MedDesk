@@ -18,6 +18,7 @@ function DetalhesConsulta() {
         <h1>Detalhes da Consulta</h1>
       </div>
 
+      {/* Dados de exemplo do paciente e da consulta. */}
       <div className="mx-auto flex max-w-4xl flex-col gap-6 p-5 md:p-8">
         <section className="rounded-2xl bg-white p-6 shadow-sm md:p-8">
           <h2 className="mb-6 text-xl font-semibold text-principal">

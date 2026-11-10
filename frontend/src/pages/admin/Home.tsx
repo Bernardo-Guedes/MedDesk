@@ -9,6 +9,7 @@ function Home() {
         <ChartColumn  size={40} />
         Dashboard
       </div>
+      {/* Indicadores e gráfico com dados de exemplo. */}
       <div className="mt-8 flex gap-4 ms-8">
         <CardStat titulo="CONSULTAS DE HOJE" numero="22" texto="Pacientes agendados pra hoje"/>
         <CardStat titulo="REALIZADAS NO MÊS" numero="543" texto="Total de atendimentos concluídos"/>

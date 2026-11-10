@@ -8,6 +8,7 @@ import { DangerButton, PrimaryButton } from "@/components/ui/button";
 
 type AbaHistorico = "consultas" | "internacoes";
 
+// Dados de exemplo do paciente.
 const dadosIniciais = {
   cpf: "234.567.890-11",
   nascimento: "12/03/2019",
@@ -72,6 +73,7 @@ function DetalhesPaciente() {
             )}
           </div>
 
+          {/* Identificação e situação de exemplo do paciente. */}
           <PatientHeader
             nome="Alice Martins"
             iniciais="AM"
@@ -118,6 +120,7 @@ function DetalhesPaciente() {
           </dl>
         </section>
 
+        {/* Histórico de exemplo de consultas e internações. */}
         <section>
           <h2 className="mb-5 text-xl font-semibold text-principal">
             Histórico de Atendimentos

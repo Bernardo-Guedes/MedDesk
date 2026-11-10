@@ -12,6 +12,7 @@ function Pacientes() {
       </div>
       <div className="mt-8">
         <SearchInput/>
+        {/* Pacientes de exemplo. */}
         <Link to="/admin/pacientes/1" className="block">
           <ListItem nome="Alice Martins" />
         </Link>

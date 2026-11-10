@@ -18,6 +18,7 @@ function Internacoes(){
         <ClipboardList size={40} />
         Internações
       </div>
+      {/* Indicadores de exemplo das internações. */}
       <div className="flex gap-3 mt-8 mx-5">
         <CardStatInternacao text="Número de quartos" number={24} />
         <CardStatInternacao text="Quartos disponíveis" number={6} />    
