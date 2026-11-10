@@ -10,6 +10,7 @@ import CriarAtendimento from "./pages/admin/CriarAtendimento";
 import DetalhesConsulta from "./pages/admin/DetalhesConsulta";
 import DetalhesPaciente from "./pages/admin/DetalhesPaciente";
 import DetalhesQuarto from "./pages/admin/DetalhesQuarto";
+import HomeProfissional from "./pages/profissionalSaude/Home";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           path="/admin/consultas/:consultaId"
           element={<DetalhesConsulta />}
         />
+      </Route>
+      <Route element={<MainLayout profissional />}>
+        <Route path="/profissional-saude" element={<HomeProfissional />} />
       </Route>
     </Routes>
   );
