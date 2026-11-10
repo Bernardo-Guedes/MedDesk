@@ -13,6 +13,7 @@ import DetalhesQuarto from "./pages/admin/DetalhesQuarto";
 import HomeProfissional from "./pages/profissionalSaude/Home";
 import PerfilProfissional from "./pages/profissionalSaude/Perfil";
 import Agenda from "./pages/profissionalSaude/Agenda";
+import NovaConsulta from "./pages/profissionalSaude/NovaConsulta";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/profissional-saude" element={<HomeProfissional />} />
         <Route path="/profissional-saude/perfil" element={<PerfilProfissional />} />
         <Route path="/profissional-saude/agenda" element={<Agenda />} />
+        <Route path="/profissional-saude/nova-consulta" element={<NovaConsulta />} />
         <Route path="/profissional-saude/consultas/:consultaId" element={<DetalhesConsulta />} />
       </Route>
     </Routes>
