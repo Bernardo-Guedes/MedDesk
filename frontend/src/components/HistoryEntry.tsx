@@ -5,8 +5,8 @@ import StatusAtendimento, {
 
 interface HistoryEntryProps {
   title: string;
-  status: string;
-  statusAtendimento: TipoStatusAtendimento;
+  status?: string;
+  statusAtendimento?: TipoStatusAtendimento;
   details: string[];
   to?: string;
 }
@@ -22,7 +22,7 @@ function HistoryEntry({
     <>
       <span className="font-semibold text-slate-800">{title}</span>
       <div className="flex flex-wrap gap-2">
-        <StatusAtendimento texto={status} status={statusAtendimento} />
+        {status && <StatusAtendimento texto={status} status={statusAtendimento} />}
         {details.map((detail) => (
           <StatusAtendimento key={detail} texto={detail} />
         ))}

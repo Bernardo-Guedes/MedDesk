@@ -14,7 +14,7 @@ import { NavLink } from "react-router";
 function Sidebar({ profissional = false }: { profissional?: boolean }) {
   const links = profissional ? [
     { to: "/profissional-saude", label: "Início", icon: House, end: true },
-    { label: "Agenda", icon: CalendarDays },
+    { to: "/profissional-saude/agenda", label: "Agenda", icon: CalendarDays },
     { label: "Nova Consulta", icon: Stethoscope },
     { to: "/profissional-saude/perfil", label: "Perfil", icon: User },
   ] : [

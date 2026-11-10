@@ -4,15 +4,24 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 interface ListItemProps {
   nome: string;
   cargo?: string;
+  detalhes?: string[];
+  imagem?: string | null;
+  compacto?: boolean;
 }
 
-function ListItem({ nome, cargo }: ListItemProps) {
+function ListItem({
+  nome,
+  cargo,
+  detalhes = ["CPF 234.567.890-11"],
+  imagem = "https://randomuser.me/api/portraits/women/32.jpg",
+  compacto = false,
+}: ListItemProps) {
   return (
-    <div className="rounded-full flex justify-between items-center px-5 py-3 bg-white max-h-max mx-10 mb-4">
-      <div className="flex gap-4 items-center">
+    <div className={`flex flex-wrap justify-between items-center gap-3 px-5 py-3 bg-white max-h-max ${compacto ? "rounded-3xl sm:rounded-full" : "rounded-full mx-10 mb-4"}`}>
+      <div className="flex min-w-0 gap-4 items-center">
         <Avatar className="size-14 shrink-0 shadow-sm border-2 border-destaque">
-          <AvatarImage src="https://randomuser.me/api/portraits/women/32.jpg" />
-          <AvatarFallback className="bg-gray-200 text-gray-500 text-5xl font-semibold">
+          {imagem && <AvatarImage src={imagem} />}
+          <AvatarFallback className={`bg-gray-200 text-gray-500 font-semibold ${compacto ? "text-xl" : "text-5xl"}`}>
             {nome
               .split(" ")
               .map((parte) => parte[0])
@@ -26,8 +35,12 @@ function ListItem({ nome, cargo }: ListItemProps) {
             {cargo && <span className="text-sm font-semibold">{cargo}</span>}
         </div>
       </div>
-      <div className="flex items-center gap-3">
-        <span className="border-2 border-destaque rounded-full px-2 py-1 text-sm font-semibold">CPF 234.567.890-11</span>
+      <div className="flex flex-wrap items-center gap-3">
+        {detalhes.map((detalhe) => (
+          <span key={detalhe} className="border-2 border-destaque rounded-full px-2 py-1 text-sm font-semibold">
+            {detalhe}
+          </span>
+        ))}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { Stethoscope } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router";
 import InfoField from "@/components/ui/InfoField";
+import { DangerButton } from "@/components/ui/button";
 
 const campoClasse =
   "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-700 disabled:cursor-default disabled:opacity-100";
@@ -80,12 +81,7 @@ function DetalhesConsulta() {
               </div>
             ) : (
               <div className="flex flex-col justify-between gap-4 border-t border-slate-200 pt-5 sm:flex-row sm:items-center">
-                <button
-                  type="button"
-                  className="rounded-full border-2 border-red-500 bg-red-50 px-6 py-3 font-bold text-red-700 transition-colors hover:bg-red-500 hover:text-white"
-                >
-                  Cancelar Consulta
-                </button>
+                <DangerButton texto="Cancelar Consulta" />
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <button
                     type="button"
