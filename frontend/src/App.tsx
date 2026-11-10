@@ -9,6 +9,7 @@ import Internacoes from "./pages/admin/Internacoes";
 import CriarAtendimento from "./pages/admin/CriarAtendimento";
 import DetalhesConsulta from "./pages/admin/DetalhesConsulta";
 import DetalhesPaciente from "./pages/admin/DetalhesPaciente";
+import DetalhesQuarto from "./pages/admin/DetalhesQuarto";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         />
         <Route path="/admin/profissionais" element={<Profissionais />} />
         <Route path="/admin/internacoes" element={<Internacoes />} />
+        <Route path="/admin/internacoes/quartos/:numeroQuarto" element={<DetalhesQuarto />} />
         <Route
           path="/admin/atendimentos/novo"
           element={<CriarAtendimento />}

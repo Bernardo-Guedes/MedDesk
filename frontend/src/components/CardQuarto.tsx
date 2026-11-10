@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export function CardQuarto({
   numero,
   status,
@@ -10,8 +12,9 @@ export function CardQuarto({
   leitosExistentes: number;
 }) {
   return (
-    <div
-      className={`bg-white rounded-lg shadow-md p-4 border-l-4 border border-gray-200 ${
+    <Link
+      to={`/admin/internacoes/quartos/${numero}`}
+      className={`block bg-white rounded-lg shadow-md p-4 border-l-4 border border-gray-200 transition-shadow hover:shadow-lg ${
         status === "Ocupado"
           ? "border-l-red-500"
           : status === "Disponível"
@@ -35,8 +38,8 @@ export function CardQuarto({
         </p>
       </div>
       <p className="text-sm text-muted-foreground text-gray-700">
-        {leitosOcupados} de {leitosExistentes} leitos ocupados
+        {leitosOcupados} de {leitosExistentes} {leitosExistentes === 1 ? "leito ocupado" : "leitos ocupados"}
       </p>
-    </div>
+    </Link>
   );
 }   

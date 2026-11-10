@@ -2,6 +2,7 @@ interface ButtonProps{
     submit?:boolean;
     texto: string;
     onClick?: () => void;
+    ariaLabel?: string;
 }
 
 function PrimaryButton({submit, texto, onClick}:ButtonProps){
@@ -28,11 +29,12 @@ function SecondaryButton({submit, texto, onClick}:ButtonProps){
     );
 }
 
-function DangerButton({submit, texto, onClick}:ButtonProps){
+function DangerButton({submit, texto, onClick, ariaLabel}:ButtonProps){
     return(
         <button 
         type={submit ? "submit" : "button"}
         onClick={onClick}
+        aria-label={ariaLabel}
         className="rounded-full py-2 px-4 text-white font-semibold bg-red-600 hover:bg-red-700"
         >    
             {texto}

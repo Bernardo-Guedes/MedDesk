@@ -202,6 +202,7 @@ function DetalhesPaciente() {
               status="Em andamento"
               statusAtendimento="emAndamento"
               details={["Entrada 05/10/2026"]}
+              to="/admin/internacoes/quartos/101"
             />
             <HistoryEntry
               title="Quarto 201 - Leito 1"
