@@ -1,133 +1,137 @@
-import { ChevronDown } from "lucide-react";
-import { PrimaryButton, SecondaryButton } from "./ui/button";
+import { useState, type FormEvent } from "react";
+import { useNavigate } from "react-router";
+import { DangerButton, PrimaryButton } from "./ui/button";
 
-interface FormAtendimentoProps {
-    admin?: boolean;
-    internacao?: boolean;
-}
+type TipoAtendimento = "rotina" | "especializado" | "emergencia" | "cirurgia" | "internacao";
 
-function FormAtendimento({ admin }: FormAtendimentoProps) {
-    return (
-        <div className="max-w-200 min bg-white rounded-lg mx-auto mt-8 p-5 flex flex-col gap-5">
-            <span className="text-principal font-semibold text-lg">
-                {admin ? "Tipo de Atendimento" : "Detalhes do Agendamento"}
-            </span>
-            <div className="flex justify-between rounded-md bg-background">
-                <label className="flex-1 text-principal bg-white m-1 text-center py-2 rounded-md font-semibold">
-                    Consulta
-                </label>
-                <label className="flex-1 text-slate-700 m-1 text-center py-2 font-semibold">
-                    Internação
-                </label>
-            </div>
-            <div className="flex w-full flex-col gap-2">
-                <label
-                    htmlFor="profissional-responsavel"
-                    className="text-sm font-semibold text-slate-700"
-                >
-                    Paciente
-                </label>
+const tipos: { valor: TipoAtendimento; texto: string }[] = [
+  { valor: "rotina", texto: "Rotina" },
+  { valor: "especializado", texto: "Especializado" },
+  { valor: "emergencia", texto: "Emergência" },
+  { valor: "cirurgia", texto: "Cirurgia" },
+  { valor: "internacao", texto: "Internação" },
+];
 
-                <div className="flex w-full items-center rounded-2xl border-2 border-slate-200 bg-slate-50 transition-all duration-200 focus-within:border-cyan-400 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(0,180,216,0.1)]">
-                    <input
-                        id="profissional-responsavel"
-                        type="text"
-                        placeholder="Digite para pesquisar o médico..."
-                        autoComplete="off"
-                        className="min-w-0 flex-1 rounded-2xl bg-transparent px-5 py-3 text-base text-slate-700 outline-none placeholder:text-slate-500"
-                    />
+// Dados de exemplo para o formulário.
+const pacientes = ["Alice Martins", "Luiza Gomes", "Monark Igor Power Da Silva", "Pedro Alves"];
+const profissionais = ["Dr. Carlos Sales", "Dr. Roberto Almeida", "Dr. Augusto Faria", "Dra. Marina Costa"];
+const especialidades = ["Pediatria", "Ortopedia"];
+const quartos = ["102", "202", "302"];
 
-                    <ChevronDown
-                        size={20}
-                        className="mr-5 shrink-0 text-slate-800"
-                        aria-hidden="true"
-                    />
-                </div>
-            </div>
-            <div className="flex w-full flex-col gap-2">
-                <label
-                    htmlFor="profissional-responsavel"
-                    className="text-sm font-semibold text-slate-700"
-                >
-                    Profissional Responsável
-                </label>
+const campo = "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-700 outline-none focus:border-principal focus:ring-2 focus:ring-destaque";
+const rotulo = "text-sm font-semibold text-slate-700";
 
-                <div className="flex w-full items-center rounded-2xl border-2 border-slate-200 bg-slate-50 transition-all duration-200 focus-within:border-cyan-400 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(0,180,216,0.1)]">
-                    <input
-                        id="profissional-responsavel"
-                        type="text"
-                        placeholder="Digite para pesquisar o médico..."
-                        autoComplete="off"
-                        className="min-w-0 flex-1 rounded-2xl bg-transparent px-5 py-3 text-base text-slate-700 outline-none placeholder:text-slate-500"
-                    />
+function FormAtendimento() {
+  const [tipo, setTipo] = useState<TipoAtendimento>("rotina");
+  const [mensagem, setMensagem] = useState("");
+  const navigate = useNavigate();
 
-                    <ChevronDown
-                        size={20}
-                        className="mr-5 shrink-0 text-slate-800"
-                        aria-hidden="true"
-                    />
-                </div>
-            </div>
-            <div className="flex justify-between gap-3">
-                <div className="flex w-full flex-col gap-2">
-                    <label
-                        htmlFor="data-consulta"
-                        className="text-sm font-semibold text-slate-700"
-                    >
-                        Data
-                    </label>
+  const criar = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setMensagem("Não foi possível criar o atendimento: a integração com o servidor ainda não está disponível.");
+  };
 
-                    <div className="flex w-full items-center rounded-2xl border-2 border-slate-200 bg-slate-50 transition-all duration-200 focus-within:border-cyan-400 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(0,180,216,0.1)]">
-                        <input
-                            id="data-consulta"
-                            type="date"
-                            name="dataConsulta"
-                            className="w-full rounded-2xl bg-transparent px-5 py-3 text-base text-slate-700 outline-none"
-                        />
-                    </div>
-                </div>
-                <div className="flex w-full flex-col gap-2">
-                    <label
-                        htmlFor="horario-consulta"
-                        className="text-sm font-semibold text-slate-700"
-                    >
-                        Horário
-                    </label>
+  return (
+    <div className="mx-auto mt-8 max-w-3xl rounded-2xl bg-white p-5 shadow-sm md:p-8">
+      <form className="flex flex-col gap-5" onSubmit={criar}>
+        <fieldset>
+          <legend className="mb-3 text-lg font-semibold text-principal">Tipo de Atendimento</legend>
+          <div className="flex flex-wrap gap-1 rounded-xl bg-background p-1">
+            {tipos.map((opcao) => (
+              <label key={opcao.valor} className={`flex-1 cursor-pointer rounded-lg px-3 py-2 text-center font-semibold transition-colors ${tipo === opcao.valor ? "bg-white text-principal shadow-sm" : "text-slate-700 hover:bg-white/60"} focus-within:ring-2 focus-within:ring-destaque`}>
+                <input
+                  type="radio"
+                  name="tipoAtendimento"
+                  value={opcao.valor}
+                  checked={tipo === opcao.valor}
+                  onChange={() => {
+                    setTipo(opcao.valor);
+                    setMensagem("");
+                  }}
+                  className="sr-only"
+                />
+                {opcao.texto}
+              </label>
+            ))}
+          </div>
+        </fieldset>
 
-                    <div className="flex w-full items-center rounded-2xl border-2 border-slate-200 bg-slate-50 transition-all duration-200 focus-within:border-cyan-400 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(0,180,216,0.1)]">
-                        <input
-                            id="horario-consulta"
-                            type="time"
-                            name="horarioConsulta"
-                            className="w-full rounded-2xl bg-transparent px-5 py-3 text-base text-slate-700 outline-none"
-                        />
-                    </div>
-                </div>
-            </div>
-            <div className="flex w-full flex-col gap-2">
-                <label
-                    htmlFor="descricao"
-                    className="text-sm font-semibold text-slate-700"
-                >
-                    Motivo da Consulta
-                </label>
-
-                <div className="w-full rounded-2xl border-2 border-slate-200 bg-slate-50 transition-all duration-200 focus-within:border-cyan-400 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(0,180,216,0.1)]">
-                    <input
-                        id="descricao"
-                        type="text"
-                        placeholder="Ex: Rotina, dor de cabeça retorno de exames..."
-                        autoComplete="off"
-                        className="w-full  rounded-2xl bg-transparent px-5 py-3 text-base text-slate-700 outline-none placeholder:text-slate-500"
-                    />
-                </div>
-            </div>
-            <div className="flex gap-3 items-center ms-auto">
-                <SecondaryButton texto="Cancelar"></SecondaryButton>
-                <PrimaryButton texto="Criar atendimento"></PrimaryButton>
-            </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="paciente-atendimento" className={rotulo}>Paciente</label>
+          <input id="paciente-atendimento" list="pacientes-atendimento" placeholder="Digite para pesquisar ou selecione o paciente..." className={campo} required />
+          <datalist id="pacientes-atendimento">
+            {pacientes.map((paciente) => <option key={paciente} value={paciente} />)}
+          </datalist>
         </div>
-    );
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="profissional-atendimento" className={rotulo}>Profissional Responsável</label>
+          <input id="profissional-atendimento" list="profissionais-atendimento" placeholder="Digite para pesquisar o profissional..." className={campo} required />
+          <datalist id="profissionais-atendimento">
+            {profissionais.map((profissional) => <option key={profissional} value={profissional} />)}
+          </datalist>
+        </div>
+
+        {tipo === "especializado" && (
+          <div className="flex flex-col gap-2">
+            <label htmlFor="especialidade-atendimento" className={rotulo}>Especialidade</label>
+            <select id="especialidade-atendimento" defaultValue="" className={campo} required>
+              <option value="" disabled>Selecione a especialidade</option>
+              {especialidades.map((especialidade) => <option key={especialidade} value={especialidade}>{especialidade}</option>)}
+            </select>
+          </div>
+        )}
+
+        {tipo === "internacao" ? (
+          <>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="quarto-atendimento" className={rotulo}>Quarto</label>
+                <select id="quarto-atendimento" defaultValue="" className={campo} required>
+                  <option value="" disabled>Selecione o quarto disponível</option>
+                  {quartos.map((quarto) => <option key={quarto} value={quarto}>Quarto {quarto}</option>)}
+                </select>
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="data-entrada" className={rotulo}>Data de Entrada</label>
+                <input id="data-entrada" type="date" className={campo} required />
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="data-alta" className={rotulo}>Data de Alta</label>
+              <input id="data-alta" type="date" className={campo} />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="observacoes-internacao" className={rotulo}>Observações</label>
+              <textarea id="observacoes-internacao" rows={3} className={`${campo} resize-y`} placeholder="Informações relevantes sobre a internação, restrições ou cuidados especiais..." />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="data-atendimento" className={rotulo}>Data</label>
+                <input id="data-atendimento" type="date" className={campo} required />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="horario-atendimento" className={rotulo}>Horário</label>
+                <input id="horario-atendimento" type="time" className={campo} required />
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="motivo-atendimento" className={rotulo}>Motivo do Atendimento</label>
+              <input id="motivo-atendimento" type="text" placeholder="Ex: avaliação de rotina, dor de cabeça, retorno de exames..." className={campo} required />
+            </div>
+          </>
+        )}
+        {mensagem && <p role="alert" className="text-sm text-red-700">{mensagem}</p>}
+        <div className="flex flex-wrap justify-end gap-3 border-t border-slate-200 pt-5">
+          <DangerButton texto="Cancelar" onClick={() => navigate("/admin")} />
+          <PrimaryButton texto="Criar atendimento" submit />
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default FormAtendimento;

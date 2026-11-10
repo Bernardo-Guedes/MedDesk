@@ -8,7 +8,7 @@ function CriarAtendimento() {
         <FilePlusCorner size={40} />
         Criar Atendimento
       </div>
-      <FormAtendimento admin/>
+      <FormAtendimento />
     </div>
   );
 }
