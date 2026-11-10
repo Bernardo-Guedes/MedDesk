@@ -11,6 +11,7 @@ import DetalhesConsulta from "./pages/admin/DetalhesConsulta";
 import DetalhesPaciente from "./pages/admin/DetalhesPaciente";
 import DetalhesQuarto from "./pages/admin/DetalhesQuarto";
 import HomeProfissional from "./pages/profissionalSaude/Home";
+import PerfilProfissional from "./pages/profissionalSaude/Perfil";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       </Route>
       <Route element={<MainLayout profissional />}>
         <Route path="/profissional-saude" element={<HomeProfissional />} />
+        <Route path="/profissional-saude/perfil" element={<PerfilProfissional />} />
       </Route>
     </Routes>
   );

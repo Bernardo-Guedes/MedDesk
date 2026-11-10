@@ -16,7 +16,7 @@ function Sidebar({ profissional = false }: { profissional?: boolean }) {
     { to: "/profissional-saude", label: "Início", icon: House, end: true },
     { label: "Agenda", icon: CalendarDays },
     { label: "Nova Consulta", icon: Stethoscope },
-    { label: "Perfil", icon: User },
+    { to: "/profissional-saude/perfil", label: "Perfil", icon: User },
   ] : [
     { to: "/admin", label: "Início", icon: House, end: true },
     { to: "/admin/pacientes", label: "Pacientes", icon: User },

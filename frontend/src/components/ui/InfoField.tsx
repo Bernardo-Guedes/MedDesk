@@ -3,16 +3,17 @@ interface InfoFieldProps {
   valor: string;
   editando?: boolean;
   onChange?: (valor: string) => void;
+  tipo?: "text" | "tel" | "email";
 }
 
-function InfoField({ rotulo, valor, editando, onChange }: InfoFieldProps) {
+function InfoField({ rotulo, valor, editando, onChange, tipo = "text" }: InfoFieldProps) {
   return (
     <div className="flex min-w-0 flex-col gap-2">
       <dt className="text-sm font-semibold text-slate-700">{rotulo}</dt>
       <dd className="min-w-0">
         {editando ? (
           <input
-            type="text"
+            type={tipo}
             aria-label={rotulo}
             value={valor}
             onChange={(e) => onChange?.(e.target.value)}
