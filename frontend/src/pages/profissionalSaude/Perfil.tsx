@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DangerButton, PrimaryButton } from "@/components/ui/button";
 import InfoField from "@/components/ui/InfoField";
 import StatusAtendimento from "@/components/ui/StatusAtendimento";
+import BadgeCategoria from "@/components/ui/BadgeCategoria";
 
 // Dados de exemplo do profissional.
 const contatoInicial = {
@@ -72,7 +73,11 @@ function Perfil() {
           </Avatar>
           <h2 className="mt-4 text-2xl font-bold text-principal">Dr. Carlos Sales</h2>
           <p className="mb-4 text-slate-600">Pediatra</p>
-          <StatusAtendimento texto="CRM: 45892-MG" />
+          <div className="flex flex-wrap justify-center gap-2">
+            <BadgeCategoria categoria="Especialista" />
+            <StatusAtendimento texto="Pediatria" />
+            <StatusAtendimento texto="CRM: 45892-MG" />
+          </div>
           {editando && <label className="mt-6 inline-flex cursor-pointer rounded-full border border-destaque px-4 py-2 text-sm font-semibold text-black focus-within:ring-2 focus-within:ring-destaque">
             Alterar Fotografia
             <input

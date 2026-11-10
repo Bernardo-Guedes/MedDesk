@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import type { ReactNode } from "react";
 
 
 interface ListItemProps {
@@ -7,6 +8,7 @@ interface ListItemProps {
   detalhes?: string[];
   imagem?: string | null;
   compacto?: boolean;
+  destaque?: ReactNode;
 }
 
 function ListItem({
@@ -15,6 +17,7 @@ function ListItem({
   detalhes = ["CPF 234.567.890-11"],
   imagem = "https://randomuser.me/api/portraits/women/32.jpg",
   compacto = false,
+  destaque,
 }: ListItemProps) {
   return (
     <div className={`flex flex-wrap justify-between items-center gap-3 px-5 py-3 bg-white max-h-max ${compacto ? "rounded-3xl sm:rounded-full" : "rounded-full mx-10 mb-4"}`}>
@@ -36,6 +39,7 @@ function ListItem({
         </div>
       </div>
       <div className="flex flex-wrap items-center gap-3">
+        {destaque}
         {detalhes.map((detalhe) => (
           <span key={detalhe} className="border-2 border-destaque rounded-full px-2 py-1 text-sm font-semibold">
             {detalhe}

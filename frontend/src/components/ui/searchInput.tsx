@@ -1,6 +1,11 @@
     import { Search } from "lucide-react";
 
-    function SearchInput() {
+    interface SearchInputProps {
+      value?: string;
+      onChange?: (value: string) => void;
+    }
+
+    function SearchInput({ value, onChange }: SearchInputProps) {
     return (
         <div
         className="
@@ -40,6 +45,8 @@
             "
             placeholder="Busca por nome"
             autoComplete="off"
+            value={value}
+            onChange={onChange ? (event) => onChange(event.target.value) : undefined}
         />
         </div>
     );
