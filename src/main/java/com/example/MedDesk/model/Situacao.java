@@ -1,0 +1,5 @@
+package com.example.MedDesk.model;
+
+public enum Situacao {
+    AGENDADA, CONFIRMADA, AGUARDANDO_AVALIACAO, EM_ATENDIMENTO, CONCLUIDA, CANCELADA, NAO_COMPARECEU
+}
