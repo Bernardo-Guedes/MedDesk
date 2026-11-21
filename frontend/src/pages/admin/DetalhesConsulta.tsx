@@ -1,7 +1,7 @@
 import { Stethoscope } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router";
 import InfoField from "@/components/ui/InfoField";
-import { DangerButton } from "@/components/ui/button";
+import { DangerButton, PrimaryButton } from "@/components/ui/button";
 
 const campoClasse =
   "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-700 disabled:cursor-default disabled:opacity-100";
@@ -20,6 +20,11 @@ function DetalhesConsulta() {
 
       {/* Dados de exemplo do paciente e da consulta. */}
       <div className="mx-auto flex max-w-4xl flex-col gap-6 p-5 md:p-8">
+        {!origemHistorico && (
+          <div>
+            <PrimaryButton texto="Voltar" onClick={() => navigate(-1)} />
+          </div>
+        )}
         <section className="rounded-2xl bg-white p-6 shadow-sm md:p-8">
           <h2 className="mb-6 text-xl font-semibold text-principal">
             Informações do Paciente

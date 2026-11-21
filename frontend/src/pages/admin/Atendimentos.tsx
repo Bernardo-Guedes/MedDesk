@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ClipboardList } from "lucide-react";
+import { Link } from "react-router";
 import ListItem from "@/components/ListItem";
 import SelectFiltro from "@/components/ui/SelectFiltro";
 import SeletorOpcoes from "@/components/ui/SeletorOpcoes";
@@ -204,8 +205,8 @@ function Atendimentos() {
         </div>
         {filtrados.length ? (
           <ul className="flex flex-col gap-3" aria-label="Lista de atendimentos">
-            {filtrados.map((atendimento) => (
-              <li key={atendimento.id}>
+            {filtrados.map((atendimento) => {
+              const item = (
                 <ListItem
                   nome={atendimento.paciente}
                   cargo={`${atendimento.tipo} - ${atendimento.profissional}`}
@@ -218,8 +219,22 @@ function Atendimentos() {
                     ...(atendimento.tipo === "Emergência" ? [`Prioridade: ${atendimento.prioridade}`] : []),
                   ]}
                 />
-              </li>
-            ))}
+              );
+
+              return (
+                <li key={atendimento.id}>
+                  {atendimento.tipo === "Rotina" || atendimento.tipo === "Especializado" ? (
+                    <Link
+                      to={`/admin/consultas/${atendimento.id}`}
+                      aria-label={`Ver detalhes da consulta de ${atendimento.paciente}`}
+                      className="block rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-principal sm:rounded-full"
+                    >
+                      {item}
+                    </Link>
+                  ) : item}
+                </li>
+              );
+            })}
           </ul>
         ) : (
           <p role="status" className="rounded-xl bg-white p-5 text-slate-600">
