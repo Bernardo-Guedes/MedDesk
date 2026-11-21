@@ -67,8 +67,8 @@ function Home() {
             </div>
             <hr className="my-4 border-slate-300 sm:col-span-2" />
             {/* Quantidades de quartos de exemplo. */}
-            <CardStat titulo="QUARTOS DISPONÍVEIS" numero="6" texto="Quartos disponíveis para internação"/>
-            <CardStat titulo="QUARTOS OCUPADOS" numero="18" texto="Quartos atualmente ocupados"/>
+            <CardStat titulo="QUARTOS DISPONÍVEIS" numero="6" texto="Quartos disponíveis para internação" variante="disponivel"/>
+            <CardStat titulo="QUARTOS OCUPADOS" numero="18" texto="Quartos atualmente ocupados" variante="ocupado"/>
           </div>
           {/* Valores de exemplo para a demanda semanal. */}
           <CardGraph numSeg={10} numTer={25} numQua={20} numQui={25} numSex={25} larguraTotal />
