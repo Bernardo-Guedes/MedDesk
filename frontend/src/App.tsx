@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router";
+import { useEffect, type ReactNode } from "react";
 
 import MainLayout from "./layouts/MainLayout";
 
@@ -16,35 +17,43 @@ import PerfilProfissional from "./pages/profissionalSaude/Perfil";
 import Agenda from "./pages/profissionalSaude/Agenda";
 import NovaConsulta from "./pages/profissionalSaude/NovaConsulta";
 
+function Pagina({ titulo, children }: { titulo: string; children: ReactNode }) {
+  useEffect(() => {
+    document.title = `MedDesk | ${titulo}`;
+  }, [titulo]);
+
+  return children;
+}
+
 function App() {
   return (
     <Routes>
       <Route element={<MainLayout />}>
-        <Route path="/admin/" element={<Home />} />
-        <Route path="/admin/pacientes" element={<Pacientes />} />
+        <Route path="/admin/" element={<Pagina titulo="Dashboard"><Home /></Pagina>} />
+        <Route path="/admin/pacientes" element={<Pagina titulo="Pacientes"><Pacientes /></Pagina>} />
         <Route
           path="/admin/pacientes/1"
-          element={<DetalhesPaciente />}
+          element={<Pagina titulo="Detalhes do Paciente"><DetalhesPaciente /></Pagina>}
         />
-        <Route path="/admin/profissionais" element={<Profissionais />} />
-        <Route path="/admin/internacoes" element={<Internacoes />} />
-        <Route path="/admin/internacoes/quartos/:numeroQuarto" element={<DetalhesQuarto />} />
-        <Route path="/admin/atendimentos" element={<Atendimentos />} />
+        <Route path="/admin/profissionais" element={<Pagina titulo="Profissionais"><Profissionais /></Pagina>} />
+        <Route path="/admin/internacoes" element={<Pagina titulo="Internações"><Internacoes /></Pagina>} />
+        <Route path="/admin/internacoes/quartos/:numeroQuarto" element={<Pagina titulo="Detalhes do Quarto"><DetalhesQuarto /></Pagina>} />
+        <Route path="/admin/atendimentos" element={<Pagina titulo="Atendimentos"><Atendimentos /></Pagina>} />
         <Route
           path="/admin/atendimentos/novo"
-          element={<CriarAtendimento />}
+          element={<Pagina titulo="Novo Atendimento"><CriarAtendimento /></Pagina>}
         />
         <Route
           path="/admin/consultas/:consultaId"
-          element={<DetalhesConsulta />}
+          element={<Pagina titulo="Detalhes da Consulta"><DetalhesConsulta /></Pagina>}
         />
       </Route>
       <Route element={<MainLayout profissional />}>
-        <Route path="/profissional-saude" element={<HomeProfissional />} />
-        <Route path="/profissional-saude/perfil" element={<PerfilProfissional />} />
-        <Route path="/profissional-saude/agenda" element={<Agenda />} />
-        <Route path="/profissional-saude/nova-consulta" element={<NovaConsulta />} />
-        <Route path="/profissional-saude/consultas/:consultaId" element={<DetalhesConsulta />} />
+        <Route path="/profissional-saude" element={<Pagina titulo="Dashboard"><HomeProfissional /></Pagina>} />
+        <Route path="/profissional-saude/perfil" element={<Pagina titulo="Perfil"><PerfilProfissional /></Pagina>} />
+        <Route path="/profissional-saude/agenda" element={<Pagina titulo="Agenda"><Agenda /></Pagina>} />
+        <Route path="/profissional-saude/nova-consulta" element={<Pagina titulo="Nova Consulta"><NovaConsulta /></Pagina>} />
+        <Route path="/profissional-saude/consultas/:consultaId" element={<Pagina titulo="Detalhes da Consulta"><DetalhesConsulta /></Pagina>} />
       </Route>
     </Routes>
   );
