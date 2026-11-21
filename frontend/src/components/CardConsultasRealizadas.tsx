@@ -37,7 +37,7 @@ function CardConsultasRealizadas({ totais }: CardConsultasRealizadasProps) {
         }}
         opcoes={opcoes}
       />
-      <CardStat titulo={titulos[periodo]} numero={totais[periodo]} texto="Consultas concluídas (dados de exemplo)" />
+      <CardStat titulo={titulos[periodo]} numero={totais[periodo]} texto="Consultas concluídas" />
     </div>
   );
 }
