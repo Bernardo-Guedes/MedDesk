@@ -4,9 +4,10 @@ interface CardGraphProps {
   numQua: number;
   numQui: number;
   numSex: number;
+  larguraTotal?: boolean;
 }
 
-function CardGraph({ numSeg, numTer, numQua, numQui, numSex }: CardGraphProps) {
+function CardGraph({ numSeg, numTer, numQua, numQui, numSex, larguraTotal = false }: CardGraphProps) {
   const dados = [
     { dia: "Seg", valor: numSeg },
     { dia: "Ter", valor: numTer },
@@ -18,7 +19,7 @@ function CardGraph({ numSeg, numTer, numQua, numQui, numSex }: CardGraphProps) {
   const maiorValor = Math.max(...dados.map((item) => item.valor), 1);
 
   return (
-    <div className="bg-white rounded-2xl border-3 border-principal flex flex-col gap-2 pb-8 px-10 max-w-155 ms-8 mt-8">
+    <div className={`bg-white rounded-2xl border-3 border-principal flex flex-col gap-2 pb-8 px-10 mt-8 ${larguraTotal ? "mx-5 md:mx-8" : "max-w-155 ms-8"}`}>
       <span className="text-xl text-principal font-semibold my-8">
         Demanda da semana
       </span>
