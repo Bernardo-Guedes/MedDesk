@@ -12,8 +12,8 @@ dashboard administrativa. Agenda, Nova Consulta e Perfil ainda não
 estão disponíveis em React.
 
 Na área administrativa, `/admin/atendimentos` lista atendimentos de exemplo
-com filtros por tipo e situação. Emergências também podem ser filtradas por
-prioridade e aparecem primeiro, ordenadas por prioridade e, em caso de empate,
+com filtros por tipo e situação; a página abre no tipo Rotina. Emergências
+também podem ser filtradas e ordenadas por prioridade e, em caso de empate,
 pela data e pelo horário mais antigos. O filtro de situação acompanha o tipo
 selecionado, incluindo as situações específicas de cirurgia.
 

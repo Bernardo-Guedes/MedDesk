@@ -31,8 +31,7 @@ type Atendimento = {
   | { tipo: Exclude<Tipo, "Emergência">; prioridade?: never }
 );
 
-const tipos: { valor: Tipo | ""; texto: string }[] = [
-  { valor: "", texto: "Todos os tipos" },
+const tipos: { valor: Tipo; texto: string }[] = [
   { valor: "Rotina", texto: "Rotina" },
   { valor: "Especializado", texto: "Especializado" },
   { valor: "Emergência", texto: "Emergência" },
@@ -87,17 +86,15 @@ const atendimentos: Atendimento[] = [
 ];
 
 function Atendimentos() {
-  const [tipo, setTipo] = useState<Tipo | "">("");
+  const [tipo, setTipo] = useState<Tipo>("Rotina");
   const [situacao, setSituacao] = useState("");
   const [prioridade, setPrioridade] = useState("");
 
-  const situacoes = tipo
-    ? situacoesPorTipo[tipo]
-    : [...new Set(Object.values(situacoesPorTipo).flat())];
+  const situacoes = situacoesPorTipo[tipo];
 
   const filtrados = atendimentos
     .filter((atendimento) =>
-      (!tipo || atendimento.tipo === tipo) &&
+      atendimento.tipo === tipo &&
       (!situacao || atendimento.situacao === situacao) &&
       (!prioridade || (atendimento.tipo === "Emergência" && atendimento.prioridade === prioridade)),
     )
@@ -107,8 +104,6 @@ function Atendimentos() {
           || a.data.localeCompare(b.data)
           || a.horario.localeCompare(b.horario);
       }
-      if (a.tipo === "Emergência") return -1;
-      if (b.tipo === "Emergência") return 1;
       return 0;
     });
 
