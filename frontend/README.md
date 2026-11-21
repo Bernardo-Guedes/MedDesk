@@ -17,6 +17,7 @@ possível ordenar por data e horário, dos mais recentes ou mais antigos.
 Emergências também podem ser filtradas por prioridade e são ordenadas primeiro
 por prioridade; a ordem de data selecionada é usada em caso de empate. O filtro
 de situação acompanha o tipo selecionado, incluindo as situações de cirurgia.
+Consultas especializadas podem ser filtradas por especialidade.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

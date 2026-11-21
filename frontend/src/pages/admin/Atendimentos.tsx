@@ -28,7 +28,8 @@ type Atendimento = {
   situacao: Situacao;
 } & (
   | { tipo: "Emergência"; prioridade: Prioridade }
-  | { tipo: Exclude<Tipo, "Emergência">; prioridade?: never }
+  | { tipo: "Especializado"; especialidade: string }
+  | { tipo: Exclude<Tipo, "Emergência" | "Especializado"> }
 );
 
 const tipos: { valor: Tipo; texto: string }[] = [
@@ -70,7 +71,7 @@ const ordemPrioridade: Record<Prioridade, number> = {
 // Atendimentos de exemplo; a página ainda não consome a API.
 const atendimentos: Atendimento[] = [
   { id: 1, paciente: "Alice Martins", profissional: "Dra. Marina Costa", tipo: "Rotina", situacao: "Agendado", data: "2026-11-25", horario: "09:00" },
-  { id: 2, paciente: "Luiza Gomes", profissional: "Dr. Carlos Sales", tipo: "Especializado", situacao: "Confirmado", data: "2026-11-26", horario: "10:00" },
+  { id: 2, paciente: "Luiza Gomes", profissional: "Dr. Carlos Sales", tipo: "Especializado", especialidade: "Pediatria", situacao: "Confirmado", data: "2026-11-26", horario: "10:00" },
   { id: 3, paciente: "Pedro Alves", profissional: "Dra. Marina Costa", tipo: "Emergência", situacao: "Aguardando avaliação", prioridade: "Baixa", data: "2026-11-20", horario: "09:00" },
   { id: 4, paciente: "Mariana Costa", profissional: "Dr. Roberto Almeida", tipo: "Emergência", situacao: "Em atendimento", prioridade: "Crítica", data: "2026-11-20", horario: "11:00" },
   { id: 5, paciente: "João Pereira", profissional: "Dr. Carlos Sales", tipo: "Emergência", situacao: "Aguardando avaliação", prioridade: "Alta", data: "2026-11-20", horario: "10:30" },
@@ -83,12 +84,21 @@ const atendimentos: Atendimento[] = [
   { id: 12, paciente: "Carla Andrade", profissional: "Dr. Augusto Faria", tipo: "Cirurgia", situacao: "Em andamento", data: "2026-11-20", horario: "09:00" },
   { id: 13, paciente: "Paulo Moreira", profissional: "Dr. Augusto Faria", tipo: "Cirurgia", situacao: "Concluído", data: "2026-11-19", horario: "10:00" },
   { id: 14, paciente: "Sofia Almeida", profissional: "Dr. Augusto Faria", tipo: "Cirurgia", situacao: "Cancelado", data: "2026-11-21", horario: "14:00" },
+  { id: 15, paciente: "Bruno Martins", profissional: "Dr. Roberto Almeida", tipo: "Especializado", especialidade: "Ortopedia", situacao: "Agendado", data: "2026-11-24", horario: "15:00" },
+  { id: 16, paciente: "Carolina Lima", profissional: "Dr. Carlos Sales", tipo: "Especializado", especialidade: "Pediatria", situacao: "Agendado", data: "2026-11-23", horario: "09:00" },
 ];
+
+const especialidades = [...new Set(
+  atendimentos.flatMap((atendimento) =>
+    atendimento.tipo === "Especializado" ? [atendimento.especialidade] : [],
+  ),
+)].sort((a, b) => a.localeCompare(b, "pt-BR"));
 
 function Atendimentos() {
   const [tipo, setTipo] = useState<Tipo>("Rotina");
   const [situacao, setSituacao] = useState("");
   const [prioridade, setPrioridade] = useState("");
+  const [especialidade, setEspecialidade] = useState("");
   const [ordemData, setOrdemData] = useState<"recentes" | "antigos">("recentes");
 
   const situacoes = situacoesPorTipo[tipo];
@@ -97,7 +107,8 @@ function Atendimentos() {
     .filter((atendimento) =>
       atendimento.tipo === tipo &&
       (!situacao || atendimento.situacao === situacao) &&
-      (!prioridade || (atendimento.tipo === "Emergência" && atendimento.prioridade === prioridade)),
+      (!prioridade || (atendimento.tipo === "Emergência" && atendimento.prioridade === prioridade)) &&
+      (!especialidade || (atendimento.tipo === "Especializado" && atendimento.especialidade === especialidade)),
     )
     .sort((a, b) => {
       const comparacaoData = a.data.localeCompare(b.data) || a.horario.localeCompare(b.horario);
@@ -124,6 +135,7 @@ function Atendimentos() {
               setTipo(valor);
               setSituacao("");
               setPrioridade("");
+              setEspecialidade("");
               setOrdemData(valor === "Emergência" ? "antigos" : "recentes");
             }}
             opcoes={tipos}
@@ -155,6 +167,20 @@ function Atendimentos() {
                 ]}
               />
             </div>
+            {tipo === "Especializado" && (
+              <div className="w-full sm:w-auto">
+                <SelectFiltro
+                  id="especialidade-atendimento"
+                  rotulo="Especialidade"
+                  valor={especialidade}
+                  onChange={setEspecialidade}
+                  opcoes={[
+                    { valor: "", texto: "Todas as especialidades" },
+                    ...especialidades.map((item) => ({ valor: item, texto: item })),
+                  ]}
+                />
+              </div>
+            )}
             {tipo === "Emergência" && (
               <div className="w-full sm:w-auto">
                 <SelectFiltro
@@ -183,6 +209,7 @@ function Atendimentos() {
                   destaque={<StatusAtendimento texto={atendimento.situacao} status={estilosSituacao[atendimento.situacao]} />}
                   detalhes={[
                     `${atendimento.data.split("-").reverse().join("/")} às ${atendimento.horario}`,
+                    ...(atendimento.tipo === "Especializado" ? [atendimento.especialidade] : []),
                     ...(atendimento.tipo === "Emergência" ? [`Prioridade: ${atendimento.prioridade}`] : []),
                   ]}
                 />
