@@ -32,12 +32,17 @@ type Atendimento = {
   | { tipo: Exclude<Tipo, "Emergência" | "Especializado"> }
 );
 
-const tipos: { valor: Tipo; texto: string }[] = [
-  { valor: "Rotina", texto: "Rotina" },
-  { valor: "Especializado", texto: "Especializado" },
-  { valor: "Emergência", texto: "Emergência" },
-  { valor: "Cirurgia", texto: "Cirurgia" },
-  { valor: "Internação", texto: "Internação" },
+const tipos: {
+  valor: Tipo;
+  texto: string;
+  estiloSelecionado: string;
+  estiloNaoSelecionado: string;
+}[] = [
+  { valor: "Rotina", texto: "Rotina", estiloSelecionado: "bg-blue-100 text-blue-900 ring-2 ring-inset ring-blue-600", estiloNaoSelecionado: "text-blue-800 hover:bg-blue-50" },
+  { valor: "Especializado", texto: "Especializado", estiloSelecionado: "bg-violet-100 text-violet-900 ring-2 ring-inset ring-violet-600", estiloNaoSelecionado: "text-violet-800 hover:bg-violet-50" },
+  { valor: "Emergência", texto: "Emergência", estiloSelecionado: "bg-red-100 text-red-900 ring-2 ring-inset ring-red-600", estiloNaoSelecionado: "text-red-800 hover:bg-red-50" },
+  { valor: "Cirurgia", texto: "Cirurgia", estiloSelecionado: "bg-amber-100 text-amber-900 ring-2 ring-inset ring-amber-600", estiloNaoSelecionado: "text-amber-800 hover:bg-amber-50" },
+  { valor: "Internação", texto: "Internação", estiloSelecionado: "bg-emerald-100 text-emerald-900 ring-2 ring-inset ring-emerald-600", estiloNaoSelecionado: "text-emerald-800 hover:bg-emerald-50" },
 ];
 
 const situacoesPorTipo: Record<Tipo, Situacao[]> = {
