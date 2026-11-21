@@ -7,6 +7,7 @@ import SelectFiltro from "@/components/ui/SelectFiltro";
 import { ChartColumn } from "lucide-react"
 import { useState } from "react";
 
+// Totais de exemplo por modalidade.
 const atendimentosPorModalidade = [
   { modalidade: "Rotina", total: 155 },
   { modalidade: "Especializado", total: 90 },
@@ -15,6 +16,7 @@ const atendimentosPorModalidade = [
   { modalidade: "Internação", total: 35 },
 ];
 
+// Profissionais e totais de atendimentos de exemplo.
 const atendimentosPorProfissional: {
   nome: string;
   categoria: CategoriaProfissional;
@@ -38,10 +40,10 @@ function Home() {
         <ChartColumn  size={40} />
         Dashboard
       </div>
-      {/* Indicadores e gráfico com dados de exemplo. */}
       <div className="grid flex-1 items-start gap-4 lg:min-h-0 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <div className="min-w-0 lg:self-stretch lg:overflow-y-auto">
           <div className="mx-5 mt-8 grid items-start gap-4 sm:grid-cols-2 md:mx-8">
+            {/* Totais de consultas realizadas de exemplo. */}
             <CardConsultasRealizadas totais={{ dia: "18", semana: "105", mes: "543" }}/>
             <div className="flex flex-col gap-3">
               <SelectFiltro
@@ -64,9 +66,11 @@ function Home() {
               />
             </div>
             <hr className="my-4 border-slate-300 sm:col-span-2" />
+            {/* Quantidades de quartos de exemplo. */}
             <CardStat titulo="QUARTOS DISPONÍVEIS" numero="6" texto="Quartos disponíveis para internação"/>
             <CardStat titulo="QUARTOS OCUPADOS" numero="18" texto="Quartos atualmente ocupados"/>
           </div>
+          {/* Valores de exemplo para a demanda semanal. */}
           <CardGraph numSeg={10} numTer={25} numQua={20} numQui={25} numSex={25} larguraTotal />
         </div>
         <section className="mx-5 mt-8 min-w-0 md:mx-8 lg:ml-0 lg:mt-0 lg:flex lg:min-h-0 lg:flex-col lg:self-stretch lg:border-l lg:border-slate-300 lg:pb-4 lg:pl-4 lg:pt-8">
