@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import { DangerButton, PrimaryButton } from "./ui/button";
+import SeletorOpcoes from "./ui/SeletorOpcoes";
 
 type TipoAtendimento = "rotina" | "especializado" | "emergencia" | "cirurgia" | "internacao";
 
@@ -34,27 +35,16 @@ function FormAtendimento() {
   return (
     <div className="mx-auto mt-8 max-w-3xl rounded-2xl bg-white p-5 shadow-sm md:p-8">
       <form className="flex flex-col gap-5" onSubmit={criar}>
-        <fieldset>
-          <legend className="mb-3 text-lg font-semibold text-principal">Tipo de Atendimento</legend>
-          <div className="flex flex-wrap gap-1 rounded-xl bg-background p-1">
-            {tipos.map((opcao) => (
-              <label key={opcao.valor} className={`flex-1 cursor-pointer rounded-lg px-3 py-2 text-center font-semibold transition-colors ${tipo === opcao.valor ? "bg-white text-principal shadow-sm" : "text-slate-700 hover:bg-white/60"} focus-within:ring-2 focus-within:ring-destaque`}>
-                <input
-                  type="radio"
-                  name="tipoAtendimento"
-                  value={opcao.valor}
-                  checked={tipo === opcao.valor}
-                  onChange={() => {
-                    setTipo(opcao.valor);
-                    setMensagem("");
-                  }}
-                  className="sr-only"
-                />
-                {opcao.texto}
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        <SeletorOpcoes
+          nome="tipoAtendimento"
+          rotulo="Tipo de Atendimento"
+          valor={tipo}
+          onChange={(valor) => {
+            setTipo(valor);
+            setMensagem("");
+          }}
+          opcoes={tipos}
+        />
 
         <div className="flex flex-col gap-2">
           <label htmlFor="paciente-atendimento" className={rotulo}>Paciente</label>

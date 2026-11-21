@@ -6,6 +6,7 @@ import Home from "./pages/admin/Home";
 import Pacientes from "./pages/admin/Pacientes";
 import Profissionais from "./pages/admin/Profissionais";
 import Internacoes from "./pages/admin/Internacoes";
+import Atendimentos from "./pages/admin/Atendimentos";
 import CriarAtendimento from "./pages/admin/CriarAtendimento";
 import DetalhesConsulta from "./pages/admin/DetalhesConsulta";
 import DetalhesPaciente from "./pages/admin/DetalhesPaciente";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/admin/profissionais" element={<Profissionais />} />
         <Route path="/admin/internacoes" element={<Internacoes />} />
         <Route path="/admin/internacoes/quartos/:numeroQuarto" element={<DetalhesQuarto />} />
+        <Route path="/admin/atendimentos" element={<Atendimentos />} />
         <Route
           path="/admin/atendimentos/novo"
           element={<CriarAtendimento />}

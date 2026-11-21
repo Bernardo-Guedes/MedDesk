@@ -11,6 +11,11 @@ realizadas por dia, semana ou mês e no filtro de atendimentos por modalidade da
 dashboard administrativa. Agenda, Nova Consulta e Perfil ainda não
 estão disponíveis em React.
 
+Na área administrativa, `/admin/atendimentos` lista atendimentos de exemplo
+com filtros por tipo e situação. Emergências também podem ser filtradas por
+prioridade e aparecem primeiro, ordenadas por prioridade e, em caso de empate,
+pela data e pelo horário mais antigos.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

@@ -5,6 +5,7 @@ import {
   UserShield,
   FilePlusCorner,
   ClipboardList,
+  ListChecks,
   CalendarDays,
   Stethoscope,
 } from "lucide-react";
@@ -22,6 +23,7 @@ function Sidebar({ profissional = false }: { profissional?: boolean }) {
     { to: "/admin/pacientes", label: "Pacientes", icon: User },
     { to: "/admin/profissionais", label: "Profissionais", icon: UserShield },
     { to: "/admin/internacoes", label: "Internações", icon: ClipboardList },
+    { to: "/admin/atendimentos", label: "Atendimentos", icon: ListChecks, end: true },
     {
       to: "/admin/atendimentos/novo",
       label: "Criar Atendimento",
