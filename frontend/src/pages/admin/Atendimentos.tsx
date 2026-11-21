@@ -89,6 +89,7 @@ function Atendimentos() {
   const [tipo, setTipo] = useState<Tipo>("Rotina");
   const [situacao, setSituacao] = useState("");
   const [prioridade, setPrioridade] = useState("");
+  const [ordemData, setOrdemData] = useState<"recentes" | "antigos">("recentes");
 
   const situacoes = situacoesPorTipo[tipo];
 
@@ -99,12 +100,12 @@ function Atendimentos() {
       (!prioridade || (atendimento.tipo === "Emergência" && atendimento.prioridade === prioridade)),
     )
     .sort((a, b) => {
+      const comparacaoData = a.data.localeCompare(b.data) || a.horario.localeCompare(b.horario);
       if (a.tipo === "Emergência" && b.tipo === "Emergência") {
         return ordemPrioridade[a.prioridade] - ordemPrioridade[b.prioridade]
-          || a.data.localeCompare(b.data)
-          || a.horario.localeCompare(b.horario);
+          || (ordemData === "recentes" ? -comparacaoData : comparacaoData);
       }
-      return 0;
+      return ordemData === "recentes" ? -comparacaoData : comparacaoData;
     });
 
   return (
@@ -123,6 +124,7 @@ function Atendimentos() {
               setTipo(valor);
               setSituacao("");
               setPrioridade("");
+              setOrdemData(valor === "Emergência" ? "antigos" : "recentes");
             }}
             opcoes={tipos}
           />
@@ -136,6 +138,20 @@ function Atendimentos() {
                 opcoes={[
                   { valor: "", texto: "Todas as situações" },
                   ...situacoes.map((item) => ({ valor: item, texto: item })),
+                ]}
+              />
+            </div>
+            <div className="w-full sm:w-auto">
+              <SelectFiltro
+                id="ordem-data-atendimento"
+                rotulo={tipo === "Emergência" ? "Data (mesma prioridade)" : "Ordenar por data"}
+                valor={ordemData}
+                onChange={(valor) => {
+                  if (valor === "recentes" || valor === "antigos") setOrdemData(valor);
+                }}
+                opcoes={[
+                  { valor: "recentes", texto: "Mais recentes" },
+                  { valor: "antigos", texto: "Mais antigos" },
                 ]}
               />
             </div>
