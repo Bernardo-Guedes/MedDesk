@@ -6,7 +6,8 @@ No diretório `frontend`, execute `npm install` para instalar as dependências
 e depois `npm run dev`. Acesse `/profissional-saude` no endereço informado pelo
 Vite (normalmente `http://localhost:5173/profissional-saude`).
 
-O dashboard utiliza dados de exemplo. Agenda, Nova Consulta e Perfil ainda não
+Os dashboards utilizam dados de exemplo, inclusive no filtro de consultas
+realizadas por dia, semana ou mês da dashboard administrativa. Agenda, Nova Consulta e Perfil ainda não
 estão disponíveis em React.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

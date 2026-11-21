@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedDesk - Pacientes</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+    <link rel="stylesheet" href="../../static/css/admin/pacientes.css" th:href="@{/css/admin/pacientes.css}">
+</head>
+<body>
+    <div class="estrutura-aplicativo">
+
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="home.html" th:href="@{home.html}" class="item-navegacao">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="pacientes.html" class="item-navegacao ativo" aria-current="page">
+                    <img src="../../static/images/perfilIconAzul.svg" th:src="@{/images/perfilIconAzul.svg}" alt="Pacientes" class="icone-navegacao">
+                    <span>Pacientes</span>
+                </a>
+                <a href="profissionais.html" class="item-navegacao">
+                    <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIcon.svg}" alt="Profissionais" class="icone-navegacao">
+                    <span>Profissionais</span>
+                </a>
+                <a href="internacoes.html" class="item-navegacao">
+                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Internações" class="icone-navegacao">
+                    <span>Internações</span>
+                </a>
+                <a href="criarAtendimento.html" class="item-navegacao">
+                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Criar Atendimento" class="icone-navegacao">
+                    <span>Criar Atendimento</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="conteudo-principal">
+
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Ana Souza</span>
+                        <span class="funcao-usuario">Secretária / Recepção</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/perfilIconAzul.svg" th:src="@{/images/perfilIconAzul.svg}" alt="" class="icone-titulo">
+                <h1 class="titulo-pagina">Pacientes</h1>
+            </div>
+
+            <div class="area-conteudo">
+
+                <div class="secao-filtros">
+                    <div class="campo-icone busca-pacientes">
+                        <span class="icone-campo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </span>
+                        <input type="search" id="busca-paciente" class="campo-formulario"
+                               placeholder="Buscar por nome"
+                               aria-label="Buscar paciente" autocomplete="off">
+                    </div>
+
+                    <div class="secao-filtros">
+                        <span class="rotulo-filtro">Filtro:</span>
+                        <button type="button" class="botao-filtro">
+                            Todos
+                           <img src="../../static/images/arrowDown.svg" th:src="@{/images/arrowDown.svg}" alt="Seta Baixo">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lista-consultas" id="lista-pacientes">
+
+                    <a href="detalhesPaciente.html?paciente=1" th:href="@{detalhesPaciente.html(paciente=1)}" class="cartao cartao-lista">
+                        <div class="identificacao">
+                            <div class="avatar-usuario"></div>
+                            <span class="nome-principal">Alice Martins</span>
+                        </div>
+                        <div class="etiquetas">
+                            <span class="etiqueta">CPF 234.567.890-11</span>
+                            <span class="etiqueta">Internado</span>
+                        </div>
+                    </a>
+
+                    <a href="detalhesPaciente.html?paciente=2" th:href="@{detalhesPaciente.html(paciente=2)}" class="cartao cartao-lista">
+                        <div class="identificacao">
+                            <div class="avatar-usuario"></div>
+                            <span class="nome-principal">Luiza Gomes</span>
+                        </div>
+                        <div class="etiquetas">
+                            <span class="etiqueta">CPF 345.678.901-22</span>
+                            <span class="etiqueta">Internado</span>
+                        </div>
+                    </a>
+
+                    <a href="detalhesPaciente.html?paciente=3" th:href="@{detalhesPaciente.html(paciente=3)}" class="cartao cartao-lista">
+                        <div class="identificacao">
+                            <div class="avatar-usuario"></div>
+                            <span class="nome-principal">Monark Igor Power Da Silva</span>
+                        </div>
+                        <div class="etiquetas">
+                            <span class="etiqueta">CPF 123.456.789-00</span>
+                            <span class="etiqueta">Ambulatorial</span>
+                        </div>
+                    </a>
+
+                    <a href="detalhesPaciente.html?paciente=4" th:href="@{detalhesPaciente.html(paciente=4)}" class="cartao cartao-lista">
+                        <div class="identificacao">
+                            <div class="avatar-usuario"></div>
+                            <span class="nome-principal">Pedro Alves</span>
+                        </div>
+                        <div class="etiquetas">
+                            <span class="etiqueta">CPF 456.789.012-33</span>
+                            <span class="etiqueta">Internado</span>
+                        </div>
+                    </a>
+
+                    <a href="detalhesPaciente.html?paciente=5" th:href="@{detalhesPaciente.html(paciente=5)}" class="cartao cartao-lista">
+                        <div class="identificacao">
+                            <div class="avatar-usuario"></div>
+                            <span class="nome-principal">Mariana Costa</span>
+                        </div>
+                        <div class="etiquetas">
+                            <span class="etiqueta">CPF 567.890.123-44</span>
+                            <span class="etiqueta">Internado</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

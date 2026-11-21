@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="icon" type="image/png" href="../../static/images/iconSite.png" th:href="@{/images/iconSite.png}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../static/css/defaultStyle.css" th:href="@{/css/defaultStyle.css}">
+    <link rel="stylesheet" href="../../static/css/profissionalSaude/home.css" th:href="@{/css/profissionalSaude/home.css}">
+</head>
+
+<body>
+    <div class="estrutura-aplicativo">
+
+        <!-- BARRA LATERAL DA SECRETÁRIA -->
+        <aside class="barra-lateral">
+            <div class="cabecalho-barra-lateral">
+                <img src="../../static/images/logoMedDesk.png" th:src="@{/images/logoMedDesk.png}" alt="MedDesk Logo" class="imagem-logo">
+            </div>
+
+            <nav class="navegacao-lateral">
+                <a href="home.html" th:href="@{home.html}" class="item-navegacao ativo">
+                    <img src="../../static/images/inicioIcon.svg" th:src="@{/images/inicioIcon.svg}" alt="Início" class="icone-navegacao">
+                    <span>Início</span>
+                </a>
+                <a href="pacientes.html" th:href="@{pacientes.html}" class="item-navegacao">
+                    <img src="../../static/images/perfilIcon.svg" th:src="@{/images/perfilIcon.svg}" alt="Pacientes" class="icone-navegacao">
+                    <span>Pacientes</span>
+                </a>
+                <!-- Item Profissionais ativo -->
+                <a href="profissionais.html" th:href="@{profissionais.html}" class="item-navegacao" aria-current="page">
+                    <img src="../../static/images/doctorIcon.svg" th:src="@{/images/doctorIconAzul.svg}" alt="Profissionais" class="icone-navegacao">
+                    <span>Profissionais</span>
+                </a>
+                <a href="internacoes.html" th:href="@{internacoes.html}" class="item-navegacao">
+                    <img src="../../static/images/historicoIcon.svg" th:src="@{/images/historicoIcon.svg}" alt="Internações" class="icone-navegacao">
+                    <span>Internações</span>
+                </a>
+                <a href="criarAtendimento.html" th:href="@{criarAtendimento.html}" class="item-navegacao">
+                    <img src="../../static/images/novaConsultaIcon.svg" th:src="@{/images/novaConsultaIcon.svg}" alt="Criar Atendimento" class="icone-navegacao">
+                    <span>Criar Atendimento</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <main class="conteudo-principal">
+
+            <header class="cabecalho-superior">
+                <div class="perfil-usuario">
+                    <div class="informacoes-usuario">
+                        <span class="nome-usuario">Ana Souza</span>
+                        <span class="funcao-usuario">Secretária / Recepção</span>
+                    </div>
+                    <div class="avatar-usuario"></div>
+                </div>
+            </header>
+
+            <!-- BARRA DE TÍTULO -->
+            <div class="barra-titulo-pagina">
+                <img src="../../static/images/dashboardIcon.svg" th:src="@{/images/dashboardIcon.svg}" alt="Ícone Dashboard" class="icone-titulo">
+                <h1 class="titulo-pagina">Dashboard</h1>
+            </div>
+
+            <!-- CONTEÚDO -->
+            <div class="area-conteudo">
+
+                <!-- GRELHA DE MÉTRICAS (CARTÕES SUPERIORES) -->
+                <div class="grade-painel">
+                    <div class="cartao cartao--gradiente cartao-indicador">
+                        <h3 class="titulo-indicador">Consultas de Hoje</h3>
+                        <div class="valor-indicador">22</div>
+                        <p class="descricao-indicador">Pacientes agendados para hoje</p>
+                    </div>
+                    <div class="cartao cartao--gradiente cartao-indicador">
+                        <h3 class="titulo-indicador">Realizadas no Mês</h3>
+                        <div class="valor-indicador">543</div>
+                        <p class="descricao-indicador">Total de atendimentos concluídos</p>
+                    </div>
+                    <div class="cartao cartao--gradiente cartao-indicador">
+                        <h3 class="titulo-indicador">Total Agendadas</h3>
+                        <div class="valor-indicador">59</div>
+                        <p class="descricao-indicador">Próximos compromissos marcados</p>
+                    </div>
+                </div>
+
+                <div class="componentes-painel">
+
+                    <!-- GRÁFICO DE BARRAS -->
+                    <div class="cartao cartao--gradiente cartao-indicador">
+                        <h3 class="cabecalho-componente">Demanda da Semana</h3>
+
+                        <div class="grafico-barras">
+
+                            <!-- Segunda -->
+                            <div class="coluna-barra">
+                                <span class="valor-barra">12</span>
+                                <div class="barra-grafico barra-grafico--40"></div>
+                                <span class="legenda-barra">Seg</span>
+                            </div>
+
+                            <!-- Terça -->
+                            <div class="coluna-barra">
+                                <span class="valor-barra">25</span>
+                                <div class="barra-grafico barra-grafico--85"></div>
+                                <span class="legenda-barra">Ter</span>
+                            </div>
+
+                            <!-- Quarta -->
+                            <div class="coluna-barra">
+                                <span class="valor-barra">18</span>
+                                <div class="barra-grafico barra-grafico--60"></div>
+                                <span class="legenda-barra">Qua</span>
+                            </div>
+
+                            <!-- Quinta -->
+                            <div class="coluna-barra">
+                                <span class="valor-barra">30</span>
+                                <div class="barra-grafico barra-grafico--100"></div>
+                                <span class="legenda-barra">Qui</span>
+                            </div>
+
+                            <!-- Sexta -->
+                            <div class="coluna-barra">
+                                <span class="valor-barra">22</span>
+                                <div class="barra-grafico barra-grafico--75"></div>
+                                <span class="legenda-barra">Sex</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

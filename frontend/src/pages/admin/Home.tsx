@@ -1,4 +1,5 @@
 import CardGraph from "@/components/CardGraph";
+import CardConsultasRealizadas from "@/components/CardConsultasRealizadas";
 import CardStat from "@/components/CardStat";
 import { ChartColumn } from "lucide-react"
 
@@ -10,9 +11,8 @@ function Home() {
         Dashboard
       </div>
       {/* Indicadores e gráfico com dados de exemplo. */}
-      <div className="mt-8 flex gap-4 ms-8">
-        <CardStat titulo="CONSULTAS DE HOJE" numero="22" texto="Pacientes agendados pra hoje"/>
-        <CardStat titulo="REALIZADAS NO MÊS" numero="543" texto="Total de atendimentos concluídos"/>
+      <div className="mx-5 mt-8 grid max-w-5xl items-start gap-4 sm:grid-cols-2 md:mx-8">
+        <CardConsultasRealizadas totais={{ dia: "18", semana: "105", mes: "543" }}/>
         <CardStat titulo="TOTAL AGENDADAS" numero="59" texto="Próximos compromissos marcados"/>
       </div>
       <CardGraph numSeg={10} numTer={25} numQua={20} numQui={25} numSex={25}/>
