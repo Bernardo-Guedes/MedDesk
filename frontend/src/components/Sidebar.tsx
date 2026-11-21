@@ -4,7 +4,7 @@ import {
   User,
   UserShield,
   FilePlusCorner,
-  ClipboardList,
+  BedDouble,
   ListChecks,
   CalendarDays,
   Stethoscope,
@@ -22,7 +22,7 @@ function Sidebar({ profissional = false }: { profissional?: boolean }) {
     { to: "/admin", label: "Início", icon: House, end: true },
     { to: "/admin/pacientes", label: "Pacientes", icon: User },
     { to: "/admin/profissionais", label: "Profissionais", icon: UserShield },
-    { to: "/admin/internacoes", label: "Internações", icon: ClipboardList },
+    { to: "/admin/internacoes", label: "Quartos", icon: BedDouble },
     { to: "/admin/atendimentos", label: "Atendimentos", icon: ListChecks, end: true },
     {
       to: "/admin/atendimentos/novo",

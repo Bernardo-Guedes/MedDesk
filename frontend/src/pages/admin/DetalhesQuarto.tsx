@@ -98,12 +98,12 @@ function DetalhesQuarto() {
             <>
               <h2 className="text-2xl font-semibold">Quarto não encontrado</h2>
               <p role="alert" className="py-5 text-red-700">
-                Não foi possível encontrar esse quarto. Volte para Internações e selecione um quarto da lista.
+                Não foi possível encontrar esse quarto. Volte para Quartos e selecione um quarto da lista.
               </p>
             </>
           )}
           <Link to="/admin/internacoes" className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-principal px-6 py-3 font-semibold text-white transition-colors hover:bg-principal-hover">
-            Voltar para Internações
+            Voltar para Quartos
           </Link>
         </section>
       </div>

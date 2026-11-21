@@ -36,7 +36,7 @@ function App() {
           element={<Pagina titulo="Detalhes do Paciente"><DetalhesPaciente /></Pagina>}
         />
         <Route path="/admin/profissionais" element={<Pagina titulo="Profissionais"><Profissionais /></Pagina>} />
-        <Route path="/admin/internacoes" element={<Pagina titulo="Internações"><Internacoes /></Pagina>} />
+        <Route path="/admin/internacoes" element={<Pagina titulo="Quartos"><Internacoes /></Pagina>} />
         <Route path="/admin/internacoes/quartos/:numeroQuarto" element={<Pagina titulo="Detalhes do Quarto"><DetalhesQuarto /></Pagina>} />
         <Route path="/admin/atendimentos" element={<Pagina titulo="Atendimentos"><Atendimentos /></Pagina>} />
         <Route
