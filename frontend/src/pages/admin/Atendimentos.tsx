@@ -10,6 +10,7 @@ type Situacao =
   | "Agendado"
   | "Confirmado"
   | "Em atendimento"
+  | "Em andamento"
   | "Concluído"
   | "Cancelado"
   | "Não compareceu"
@@ -43,7 +44,7 @@ const situacoesPorTipo: Record<Tipo, Situacao[]> = {
   Rotina: ["Agendado", "Confirmado", "Em atendimento", "Concluído", "Cancelado", "Não compareceu"],
   Especializado: ["Agendado", "Confirmado", "Em atendimento", "Concluído", "Cancelado", "Não compareceu"],
   Emergência: ["Aguardando avaliação", "Em atendimento", "Concluído"],
-  Cirurgia: ["Agendado", "Em atendimento", "Concluído", "Cancelado"],
+  Cirurgia: ["Agendado", "Em andamento", "Concluído", "Cancelado"],
   Internação: ["Internado", "Alta"],
 };
 
@@ -51,6 +52,7 @@ const estilosSituacao: Record<Situacao, TipoStatusAtendimento> = {
   Agendado: "agendada",
   Confirmado: "agendada",
   "Em atendimento": "emAndamento",
+  "Em andamento": "emAndamento",
   Concluído: "concluida",
   Cancelado: "cancelada",
   "Não compareceu": "naoCompareceu",
@@ -79,6 +81,9 @@ const atendimentos: Atendimento[] = [
   { id: 9, paciente: "Clara Santos", profissional: "Dra. Marina Costa", tipo: "Internação", situacao: "Internado", data: "2026-11-19", horario: "14:00" },
   { id: 10, paciente: "Miguel Rocha", profissional: "Dr. Roberto Almeida", tipo: "Internação", situacao: "Alta", data: "2026-11-18", horario: "15:00" },
   { id: 11, paciente: "Laura Ferreira", profissional: "Dra. Marina Costa", tipo: "Rotina", situacao: "Concluído", data: "2026-11-19", horario: "11:00" },
+  { id: 12, paciente: "Carla Andrade", profissional: "Dr. Augusto Faria", tipo: "Cirurgia", situacao: "Em andamento", data: "2026-11-20", horario: "09:00" },
+  { id: 13, paciente: "Paulo Moreira", profissional: "Dr. Augusto Faria", tipo: "Cirurgia", situacao: "Concluído", data: "2026-11-19", horario: "10:00" },
+  { id: 14, paciente: "Sofia Almeida", profissional: "Dr. Augusto Faria", tipo: "Cirurgia", situacao: "Cancelado", data: "2026-11-21", horario: "14:00" },
 ];
 
 function Atendimentos() {
